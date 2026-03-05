@@ -54,7 +54,7 @@ const font = {
 const STATS = [
   { value: "45", unit: "min", label: "Sessions. Full volume." },
   { value: "5", unit: "", label: "Training days. Zero redundancy." },
-  { value: "Intelligent", unit: "", label: "Every session adapts to you." },
+  { value: "Smart", unit: "", label: "Every session adapts to you." },
 ];
 
 const FEATURES = [
@@ -834,7 +834,7 @@ export default function CarmonaOS() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { background: #0A0A0A; -webkit-font-smoothing: antialiased; }
+        body { background: #0A0A0A; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         ::selection { background: rgba(255,255,255,0.15); color: #fff; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #0A0A0A; }
