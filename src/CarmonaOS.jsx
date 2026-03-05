@@ -505,7 +505,7 @@ function WaitlistSection() {
               <input
                 type="email"
                 required
-                placeholder="you@company.com"
+                placeholder="you@company.com" style={{ fontSize: "16px" }}
                 value={emailVal}
                 onChange={(e) => setEmailVal(e.target.value)}
                 className="flex-1 px-5 py-4 rounded-full text-sm outline-none transition-all duration-300 focus:ring-2"
