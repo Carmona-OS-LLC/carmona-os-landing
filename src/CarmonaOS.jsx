@@ -302,6 +302,114 @@ function RecipeSection() {
 
 // ─── FEATURES ────────────────────────────────────────────────────────────────
 
+
+// ─── FEATURE MOCKUP COMPONENTS ───────────────────────────────────────────────
+
+function EngineMockup() {
+  const exercises = [
+    { name: "Incline DB Press", sets: "4×8", weight: "75 lb", status: "▲ Load" },
+    { name: "Cable Flye", sets: "3×12", weight: "30 lb", status: "● Hold" },
+    { name: "Seated Row", sets: "4×10", weight: "135 lb", status: "▲ Load" },
+    { name: "Lateral Raise", sets: "3×15", weight: "20 lb", status: "● Reinforce" },
+  ];
+  return (
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Session Engine</span>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Week 4 · Day 2</span>
+        </div>
+        <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Inter', sans-serif" }}>Upper Push + Accessories</span>
+      </div>
+      <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
+        {exercises.map((ex, i) => (
+          <div key={i} className="flex items-center justify-between py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+            <div>
+              <div className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Inter', sans-serif" }}>{ex.name}</div>
+              <div className="text-xs" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>{ex.sets} · {ex.weight}</div>
+            </div>
+            <span className="text-[11px] font-medium px-2 py-0.5 rounded-full" style={{
+              background: ex.status.includes("Load") ? "rgba(34,197,94,0.12)" : "rgba(255,255,255,0.06)",
+              color: ex.status.includes("Load") ? "#22c55e" : "rgba(255,255,255,0.4)",
+              fontFamily: "'Inter', sans-serif"
+            }}>{ex.status}</span>
+          </div>
+        ))}
+      </div>
+      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif" }}>Arc position: Foundation → Volume ramp in 2 sessions</div>
+      </div>
+    </div>
+  );
+}
+
+function BeforeNowMockup() {
+  const metrics = [
+    { label: "Chest", before: "39.5″", now: "41.2″", delta: "+1.7″" },
+    { label: "Waist", before: "33.0″", now: "31.8″", delta: "−1.2″" },
+    { label: "Arms", before: "15.0″", now: "15.8″", delta: "+0.8″" },
+    { label: "Quads", before: "23.5″", now: "24.4″", delta: "+0.9″" },
+  ];
+  return (
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Progress</span>
+        <div className="flex items-baseline gap-2 mt-1">
+          <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Inter', sans-serif" }}>8-Week Check</span>
+          <span className="text-xs" style={{ color: "rgba(34,197,94,0.8)", fontFamily: "'Inter', sans-serif" }}>On track</span>
+        </div>
+      </div>
+      <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
+        <div className="grid grid-cols-4 text-[10px] tracking-wider uppercase pb-2" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+          <span></span><span>Before</span><span>Now</span><span>Δ</span>
+        </div>
+        {metrics.map((m, i) => (
+          <div key={i} className="grid grid-cols-4 items-center py-1.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+            <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Inter', sans-serif" }}>{m.label}</span>
+            <span className="text-sm" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>{m.before}</span>
+            <span className="text-sm" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Inter', sans-serif" }}>{m.now}</span>
+            <span className="text-sm font-medium" style={{ color: m.delta.startsWith("+") ? "#22c55e" : "#f59e0b", fontFamily: "'Inter', sans-serif" }}>{m.delta}</span>
+          </div>
+        ))}
+      </div>
+      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif" }}>Target: +2″ chest, −2″ waist by Week 12</div>
+      </div>
+    </div>
+  );
+}
+
+function DebriefMockup() {
+  return (
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="flex items-center justify-between">
+          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Post-Session Debrief</span>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Today · Upper Push</span>
+        </div>
+      </div>
+      <div className="flex-1 px-5 py-5 overflow-hidden">
+        <div className="text-sm leading-relaxed italic" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Playfair Display', serif" }}>
+          "You hit a rep PR on incline dumbbell — 75s for 8, clean. That's the signal. Next week we move to 80s and reset at 6 reps. The cable flyes are dialing in — I want you to hold that weight one more session before we progress. Your chest volume is exactly where it needs to be for this phase."
+        </div>
+        <div className="mt-4 pt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)" }}>MC</div>
+            <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Matthew Carmona · NASM-CPT</span>
+          </div>
+        </div>
+      </div>
+      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="flex gap-3">
+          <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: "rgba(34,197,94,0.1)", color: "#22c55e", fontFamily: "'Inter', sans-serif" }}>PR: Incline DB</span>
+          <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Hold: Cable Flye</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 function FeaturesSection() {
   return (
     <section className="relative py-28 px-6">
@@ -327,14 +435,7 @@ function FeaturesSection() {
               </FadeIn>
             ) : (
               <FadeIn delay={0.3}>
-                <GlassCard className="p-8 aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: B.glassBorder }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke={B.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    </div>
-                    <span className="text-xs tracking-[0.2em] uppercase" style={{ fontFamily: font.body, color: B.muted }}>{f.label}</span>
-                  </div>
-                </GlassCard>
+                {f.label === "The Engine" ? <EngineMockup /> : f.label === "Before & Now" ? <BeforeNowMockup /> : <DebriefMockup />}
               </FadeIn>
             )}
           </div>
