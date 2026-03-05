@@ -5,6 +5,8 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 
 // ─── IMAGES ──────────────────────────────────────────────────────────────────
 const IMAGES = {
+  hero2400: "/hero-cover.jpg",
+  abs: "/Matthew_Carmona_051324_0188.jpg",
   hero: "/hero-cover.jpg",
   shoulders: "/untitled-16.jpg",
   legs: "/Matthew_Carmona_061223_0268.jpg.jpeg",
@@ -25,7 +27,7 @@ const IMAGES = {
 
 
 
-const HAS_IMAGES = !!IMAGES.hero2400;
+const HAS_IMAGES = !!IMAGES.hero;
 
 // ─── BRAND CONSTANTS ─────────────────────────────────────────────────────────
 
