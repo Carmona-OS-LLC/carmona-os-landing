@@ -453,8 +453,6 @@ function DebriefMockup() {
 // ─── WAITLIST EMAIL CAPTURE ──────────────────────────────────────────────────
 
 function WaitlistSection() {
-  const [email, setEmail] = React.useState ? React.useState("") : ["", () => {}];
-  const [status, setStatus] = React.useState ? React.useState("idle") : ["idle", () => {}];
   // Use hooks properly
   const [emailVal, setEmailVal] = useState("");
   const [submitStatus, setSubmitStatus] = useState("idle"); // idle | sending | success | error
