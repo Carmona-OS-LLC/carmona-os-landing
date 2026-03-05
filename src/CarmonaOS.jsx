@@ -303,77 +303,102 @@ function RecipeSection() {
 // ─── FEATURES ────────────────────────────────────────────────────────────────
 
 
-// ─── FEATURE MOCKUP COMPONENTS ───────────────────────────────────────────────
+
+// ─── FEATURE MOCKUP COMPONENTS (v2 — matches actual app) ────────────────────
 
 function EngineMockup() {
   const exercises = [
-    { name: "Incline DB Press", sets: "4×8", weight: "75 lb", status: "▲ Load" },
-    { name: "Cable Flye", sets: "3×12", weight: "30 lb", status: "● Hold" },
-    { name: "Seated Row", sets: "4×10", weight: "135 lb", status: "▲ Load" },
-    { name: "Lateral Raise", sets: "3×15", weight: "20 lb", status: "● Reinforce" },
+    { name: "Incline DB Press", sets: "4 × 8", weight: "75 lb", tag: "Upper Shelf", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Cable Flye", sets: "3 × 12", weight: "30 lb", tag: "Inner Tie-in", status: "● Hold", statusColor: "rgba(255,255,255,0.4)", statusBg: "rgba(255,255,255,0.04)" },
+    { name: "Seated Row", sets: "4 × 10", weight: "135 lb", tag: "Lat Width", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Lateral Raise", sets: "3 × 15", weight: "20 lb", tag: "Shoulder Cap", status: "● Reinforce", statusColor: "#C8A97E", statusBg: "rgba(200,169,126,0.08)" },
   ];
   return (
-    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-        <div className="flex items-center justify-between mb-1">
-          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Session Engine</span>
-          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Week 4 · Day 2</span>
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "#0A0A0A", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="flex items-center justify-between mb-1.5">
+          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>Next Session</span>
+          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: "rgba(200,169,126,0.08)", color: "#C8A97E", fontFamily: "'Inter', sans-serif" }}>Block 2 · Ramp</span>
         </div>
-        <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Inter', sans-serif" }}>Upper Push + Accessories</span>
+        <span className="text-base font-medium" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Playfair Display', serif" }}>Chest & Biceps</span>
+        <div className="flex gap-3 mt-2">
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>6 exercises</span>
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>~52 min</span>
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(200,169,126,0.15)", color: "#C8A97E", fontFamily: "'Inter', sans-serif" }}>Pro Mode</span>
+        </div>
       </div>
-      <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
+      <div className="flex-1 px-5 py-3 space-y-0 overflow-hidden">
         {exercises.map((ex, i) => (
-          <div key={i} className="flex items-center justify-between py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+          <div key={i} className="flex items-center justify-between py-2.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
             <div>
               <div className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Inter', sans-serif" }}>{ex.name}</div>
-              <div className="text-xs" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>{ex.sets} · {ex.weight}</div>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif" }}>{ex.sets} · {ex.weight}</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>{ex.tag}</span>
+              </div>
             </div>
-            <span className="text-[11px] font-medium px-2 py-0.5 rounded-full" style={{
-              background: ex.status.includes("Load") ? "rgba(34,197,94,0.12)" : "rgba(255,255,255,0.06)",
-              color: ex.status.includes("Load") ? "#22c55e" : "rgba(255,255,255,0.4)",
-              fontFamily: "'Inter', sans-serif"
-            }}>{ex.status}</span>
+            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full flex-shrink-0" style={{ background: ex.statusBg, color: ex.statusColor, fontFamily: "'Inter', sans-serif" }}>{ex.status}</span>
           </div>
         ))}
       </div>
-      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif" }}>Arc position: Foundation → Volume ramp in 2 sessions</div>
+      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.01)", borderTop: "1px solid rgba(255,255,255,0.03)" }}>
+        <div className="w-full py-3 rounded-xl text-center text-sm font-semibold" style={{ background: "white", color: "#0A0A0A", fontFamily: "'Inter', sans-serif" }}>Start Workout</div>
       </div>
     </div>
   );
 }
 
 function BeforeNowMockup() {
-  const metrics = [
-    { label: "Chest", before: "39.5″", now: "41.2″", delta: "+1.7″" },
-    { label: "Waist", before: "33.0″", now: "31.8″", delta: "−1.2″" },
-    { label: "Arms", before: "15.0″", now: "15.8″", delta: "+0.8″" },
-    { label: "Quads", before: "23.5″", now: "24.4″", delta: "+0.9″" },
+  const rotationData = [
+    { name: "Incline DB", weeks: [true, true, true, false] },
+    { name: "Cable Flye", weeks: [true, false, true, true] },
+    { name: "Hammer Curl", weeks: [false, true, false, true] },
+    { name: "Lat Raise", weeks: [true, true, false, true] },
   ];
+  const progressionEvents = [
+    { exercise: "Incline DB Press", detail: "Ready to promote — 75 lbs", type: "weight" },
+    { exercise: "Seated Row", detail: "3 consecutive sessions at target reps", type: "rep" },
+  ];
+  const phaseColor = "#C8A97E";
   return (
-    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-        <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Progress</span>
-        <div className="flex items-baseline gap-2 mt-1">
-          <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Inter', sans-serif" }}>8-Week Check</span>
-          <span className="text-xs" style={{ color: "rgba(34,197,94,0.8)", fontFamily: "'Inter', sans-serif" }}>On track</span>
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "#0A0A0A", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="flex items-baseline justify-between mb-1">
+          <span className="text-base font-medium" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Playfair Display', serif" }}>Training Arc</span>
+          <span className="text-[10px] font-semibold tracking-[0.15em] uppercase" style={{ color: phaseColor, fontFamily: "'Inter', sans-serif" }}>Block 2</span>
+        </div>
+        <div className="flex mt-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+          {[["Rotation", true], ["Progression", false], ["Next Block", false]].map(([label, active]) => (
+            <span key={label} className="text-[11px] pb-2 mr-4" style={{ color: active ? "#F5F5F5" : "#808080", fontWeight: active ? 600 : 400, borderBottom: active ? `2px solid ${phaseColor}` : "2px solid transparent", fontFamily: "'Inter', sans-serif" }}>{label}</span>
+          ))}
         </div>
       </div>
-      <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
-        <div className="grid grid-cols-4 text-[10px] tracking-wider uppercase pb-2" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-          <span></span><span>Before</span><span>Now</span><span>Δ</span>
+      <div className="flex-1 px-5 py-3 overflow-hidden">
+        <div className="flex items-center gap-3 mb-3 p-2.5 rounded-xl" style={{ background: `${phaseColor}08`, borderLeft: `3px solid ${phaseColor}` }}>
+          <span className="text-sm" style={{ opacity: 0.7 }}>🔒</span>
+          <div>
+            <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Inter', sans-serif" }}>Flat Barbell Bench</span>
+            <span className="text-[11px] ml-2" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>P0 lock · every session</span>
+          </div>
         </div>
-        {metrics.map((m, i) => (
-          <div key={i} className="grid grid-cols-4 items-center py-1.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-            <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Inter', sans-serif" }}>{m.label}</span>
-            <span className="text-sm" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>{m.before}</span>
-            <span className="text-sm" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Inter', sans-serif" }}>{m.now}</span>
-            <span className="text-sm font-medium" style={{ color: m.delta.startsWith("+") ? "#22c55e" : "#f59e0b", fontFamily: "'Inter', sans-serif" }}>{m.delta}</span>
+        <div className="grid mb-1" style={{ gridTemplateColumns: "90px repeat(4, 1fr)" }}>
+          <span className="text-[9px] tracking-[0.1em] uppercase" style={{ color: "#555", fontFamily: "'Inter', sans-serif" }}>Exercise</span>
+          {[1,2,3,4].map(w => (
+            <span key={w} className="text-[9px] tracking-[0.1em] uppercase text-center" style={{ color: w === 4 ? phaseColor : "#555", fontFamily: "'Inter', sans-serif" }}>W{w}{w === 4 ? " ●" : ""}</span>
+          ))}
+        </div>
+        {rotationData.map((slot, si) => (
+          <div key={si} className="grid py-1.5" style={{ gridTemplateColumns: "90px repeat(4, 1fr)", borderTop: "1px solid rgba(255,255,255,0.03)" }}>
+            <span className="text-[10px] flex items-center truncate" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>{slot.name}</span>
+            {slot.weeks.map((on, wi) => (
+              <span key={wi} className="text-[10px] text-center" style={{ color: on ? "#F5F5F5" : "rgba(255,255,255,0.12)", fontWeight: on ? 500 : 400, fontFamily: "'Inter', sans-serif" }}>{on ? "✓" : "—"}</span>
+            ))}
           </div>
         ))}
-      </div>
-      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'Inter', sans-serif" }}>Target: +2″ chest, −2″ waist by Week 12</div>
+        <div className="flex justify-between mt-2 pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.03)" }}>
+          <span className="text-[10px]" style={{ color: "#555", fontFamily: "'Inter', sans-serif" }}>4 sessions logged</span>
+          <span className="text-[10px]" style={{ color: phaseColor, fontFamily: "'Inter', sans-serif" }}>12 unique exercises</span>
+        </div>
       </div>
     </div>
   );
@@ -381,28 +406,42 @@ function BeforeNowMockup() {
 
 function DebriefMockup() {
   return (
-    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", border: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="px-5 pt-5 pb-3 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+    <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "#0A0A0A", border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="px-5 pt-5 pb-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="flex items-center justify-between">
-          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Post-Session Debrief</span>
-          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Today · Upper Push</span>
-        </div>
-      </div>
-      <div className="flex-1 px-5 py-5 overflow-hidden">
-        <div className="text-sm leading-relaxed italic" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Playfair Display', serif" }}>
-          "You hit a rep PR on incline dumbbell — 75s for 8, clean. That's the signal. Next week we move to 80s and reset at 6 reps. The cable flyes are dialing in — I want you to hold that weight one more session before we progress. Your chest volume is exactly where it needs to be for this phase."
-        </div>
-        <div className="mt-4 pt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)" }}>MC</div>
-            <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Matthew Carmona · NASM-CPT</span>
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg,#1a1a1a,#0a0a0a)", border: "1px solid rgba(255,255,255,0.1)" }}>
+              <span className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Playfair Display', serif" }}>C</span>
+            </div>
+            <div>
+              <span className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Inter', sans-serif" }}>Carmona</span>
+              <span className="block text-[9px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Post-Session Debrief</span>
+            </div>
           </div>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Inter', sans-serif" }}>Chest & Biceps</span>
         </div>
       </div>
-      <div className="px-5 py-3" style={{ background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-        <div className="flex gap-3">
-          <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: "rgba(34,197,94,0.1)", color: "#22c55e", fontFamily: "'Inter', sans-serif" }}>PR: Incline DB</span>
-          <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>Hold: Cable Flye</span>
+      <div className="flex-1 px-5 py-4 overflow-hidden">
+        <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Inter', sans-serif", lineHeight: 1.7 }}>
+          The incline work is landing where it needs to — 75s for 8 means the upper shelf is building properly. That's the line from flat to standout. Cable flyes are dialing in the inner tie-in, hold that weight one more week before we push. The volume density today was right for this phase of the ramp.
+        </p>
+        <div className="flex gap-2 mt-4">
+          <span className="text-[10px] px-2.5 py-1 rounded-full" style={{ background: "rgba(74,222,128,0.08)", color: "#4ADE80", fontFamily: "'Inter', sans-serif" }}>PR: Incline DB 75×8</span>
+          <span className="text-[10px] px-2.5 py-1 rounded-full" style={{ background: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>Hold: Cable Flye</span>
+        </div>
+      </div>
+      <div className="px-5 py-3" style={{ borderTop: "1px solid rgba(255,255,255,0.03)" }}>
+        <div className="flex gap-2.5">
+          {[
+            { label: "Volume", value: "14.2K", unit: "lbs" },
+            { label: "Sets", value: "22", unit: "completed" },
+            { label: "Exercises", value: "6", unit: "logged" },
+          ].map(st => (
+            <div key={st.label} className="flex-1 text-center p-2.5 rounded-xl" style={{ border: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.015)" }}>
+              <p className="text-base font-medium" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Playfair Display', serif", lineHeight: 1 }}>{st.value}</p>
+              <p className="text-[8px] mt-1" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>{st.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
