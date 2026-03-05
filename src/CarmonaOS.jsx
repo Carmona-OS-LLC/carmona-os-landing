@@ -12,11 +12,6 @@ const B = {
   glassBorder: "rgba(255,255,255,0.08)",
 };
 
-const font = {
-  display: "'Playfair Display', serif",
-  body: "'Inter', sans-serif",
-};
-
 // ─── IMAGES ──────────────────────────────────────────────────────────────────
 // PRODUCTION: Replace these with your CDN URLs.
 // Export hero-cover.jpg at TWO sizes:
