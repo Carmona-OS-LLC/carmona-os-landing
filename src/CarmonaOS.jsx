@@ -4,15 +4,6 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 // ─── BRAND CONSTANTS ─────────────────────────────────────────────────────────
 
 // ─── IMAGES ──────────────────────────────────────────────────────────────────
-// PRODUCTION: Replace these with your CDN URLs.
-// Export hero-cover.jpg at TWO sizes:
-//   • hero-cover-1200.jpg  → 1200px wide, quality 80 (mobile)
-//   • hero-cover-2400.jpg  → 2400px wide, quality 75 (desktop/retina)
-// Export watch photo at 800px wide, quality 80.
-// Export profile crop at 120×120px, quality 80.
-//
-// For the artifact preview, we use placeholder gradients.
-
 const IMAGES = {
   hero: "/hero-cover.jpg",
   shoulders: "/untitled-16.jpg",
@@ -23,6 +14,16 @@ const IMAGES = {
   tank: "/Matthew_Carmona_051324_0188.jpg",
   profile: "/untitled-16.jpg",
 };
+// PRODUCTION: Replace these with your CDN URLs.
+// Export hero-cover.jpg at TWO sizes:
+//   • hero-cover-1200.jpg  → 1200px wide, quality 80 (mobile)
+//   • hero-cover-2400.jpg  → 2400px wide, quality 75 (desktop/retina)
+// Export watch photo at 800px wide, quality 80.
+// Export profile crop at 120×120px, quality 80.
+//
+// For the artifact preview, we use placeholder gradients.
+
+
 
 const HAS_IMAGES = !!IMAGES.hero2400;
 
@@ -42,22 +43,10 @@ const font = {
   body: "'Inter', sans-serif",
 };
 
-<<<<<<< HEAD
 // ─── IMAGES ──────────────────────────────────────────────────────────────────
 
-const IMAGES = {
-  hero: "/hero-cover.jpg",
-  shoulders: "/untitled-16.jpg",
-  legs: "/Matthew_Carmona_061223_0268_jpg.jpeg",
-  back: "/Matthew_Carmona_020524_0285.jpg",
-  aux: "/IMG_0840_png.jpeg",
-  watch: "/photo-watch.jpeg",
-  tank: "/Matthew_Carmona_051324_0188.jpg",
-  profile: "/untitled-16.jpg",
-};
 
-=======
->>>>>>> f90e02739f61ac4a29f090d6c1ad1f2726ce6dfc
+
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const STATS = [
