@@ -819,21 +819,6 @@ function FinalCTA() {
   );
 }
 
-// ─── FOOTER ──────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="py-12 px-6" style={{ borderTop: `1px solid ${B.glassBorder}` }}>
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold" style={{ background: B.glassBorder, color: B.accent, fontFamily: font.display }}>C</div>
-          <span className="text-xs" style={{ fontFamily: font.body, color: B.muted }}>Carmona OS</span>
-        </div>
-        <span className="text-xs" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.2)" }}>© {new Date().getFullYear()} Carmona OS. All rights reserved.</span>
-      </div>
-    </footer>
-  );
-}
 
 // ─── APP ─────────────────────────────────────────────────────────────────────
 
