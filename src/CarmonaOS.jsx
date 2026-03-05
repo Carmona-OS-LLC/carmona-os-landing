@@ -10,8 +10,8 @@ const IMAGES = {
   hero: "/hero-cover.jpg",
   shoulders: "/untitled-16.jpg",
   legs: "/Matthew_Carmona_061223_0268.jpg.jpeg",
-  back: "/biceps.jpeg",
-  aux: "/Abs.png",
+  back: "/Abs.png",
+  aux: "/biceps.jpeg",
   watch: "/biceps.jpeg",
   tank: "/Abs.png",
   profile: "/Matthew_Carmona_020524_0285.jpg",
@@ -237,7 +237,7 @@ function Hero() {
             Intelligent programming. A progression engine that adapts to your data. This coach's voice after every session.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.0 }} className="flex flex-wrap gap-4">
-            <CTAButton>Start Your Protocol →</CTAButton>
+            <CTAButton onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}>Start Your Protocol →</CTAButton>
             <CTAButton variant="ghost">See How It Works ↓</CTAButton>
           </motion.div>
         </div>
@@ -449,6 +449,163 @@ function DebriefMockup() {
 }
 
 
+
+// ─── WAITLIST EMAIL CAPTURE ──────────────────────────────────────────────────
+
+function WaitlistSection() {
+  const [email, setEmail] = React.useState ? React.useState("") : ["", () => {}];
+  const [status, setStatus] = React.useState ? React.useState("idle") : ["idle", () => {}];
+  // Use hooks properly
+  const [emailVal, setEmailVal] = useState("");
+  const [submitStatus, setSubmitStatus] = useState("idle"); // idle | sending | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!emailVal || submitStatus === "sending") return;
+    setSubmitStatus("sending");
+    try {
+      const res = await fetch("https://formspree.io/f/mojkajpg", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailVal }),
+      });
+      if (res.ok) {
+        setSubmitStatus("success");
+        setEmailVal("");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    }
+  };
+
+  return (
+    <section id="waitlist" className="relative py-28 px-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <FadeIn>
+          <SectionLabel>Early Access</SectionLabel>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 leading-[1.05]" style={{ fontFamily: font.display, color: B.accent }}>
+            Lock your founding rate.
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <p className="text-base mb-10 leading-relaxed max-w-lg mx-auto" style={{ fontFamily: font.body, color: B.muted }}>
+            $19.99/mo — permanently locked for founding members. Drop your email and we'll notify you the moment the doors open.
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.3}>
+          {submitStatus === "success" ? (
+            <div className="py-6">
+              <p className="text-lg font-medium" style={{ fontFamily: font.body, color: B.accent }}>You're on the list. ✓</p>
+              <p className="text-sm mt-2" style={{ fontFamily: font.body, color: B.muted }}>We'll be in touch when it's time to start.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                required
+                placeholder="you@company.com"
+                value={emailVal}
+                onChange={(e) => setEmailVal(e.target.value)}
+                className="flex-1 px-5 py-4 rounded-full text-sm outline-none transition-all duration-300 focus:ring-2"
+                style={{
+                  fontFamily: font.body,
+                  background: B.glass,
+                  border: `1px solid ${B.glassBorder}`,
+                  color: B.accent,
+                  ringColor: B.glassBorder,
+                }}
+              />
+              <button
+                type="submit"
+                disabled={submitStatus === "sending"}
+                className="px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+                style={{ fontFamily: font.body, background: B.accent, color: B.bg }}
+              >
+                {submitStatus === "sending" ? "Joining..." : "Reserve My Spot →"}
+              </button>
+            </form>
+          )}
+          {submitStatus === "error" && (
+            <p className="text-sm mt-3" style={{ color: "#ef4444", fontFamily: font.body }}>Something went wrong. Try again.</p>
+          )}
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+// ─── FAQ SECTION ─────────────────────────────────────────────────────────────
+
+function FAQSection() {
+  const faqs = [
+    { q: "Can I cancel anytime?", a: "Yes. No contracts, no commitments. Cancel from your account settings in one tap." },
+    { q: "What equipment do I need?", a: "Access to a standard commercial gym — barbells, dumbbells, cables, and machines. No specialty equipment required." },
+    { q: "Is this for beginners?", a: "Carmona OS is built for intermediate to advanced lifters who train consistently and want a structured system. If you already train 3–5 days a week, this is for you." },
+    { q: "How is this different from a $10 fitness app?", a: "Most apps give you random workouts. Carmona OS runs a real progression engine — it tracks your performance, rotates exercises intelligently, and tells you exactly when to add load. Plus you get a personalized AI debrief after every session." },
+    { q: "What happens after I sign up?", a: "You'll calibrate your profile (goal, experience, training days), and the system generates your first session immediately. No setup delay — you can train the same day." },
+  ];
+  const [openIdx, setOpenIdx] = useState(null);
+
+  return (
+    <section className="relative py-28 px-6">
+      <SectionDivider />
+      <div className="max-w-2xl mx-auto">
+        <FadeIn><SectionLabel>FAQ</SectionLabel></FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 leading-[1.1]" style={{ fontFamily: font.display, color: B.accent }}>
+            Common questions.
+          </h2>
+        </FadeIn>
+        <div className="space-y-2">
+          {faqs.map((faq, i) => (
+            <FadeIn key={i} delay={0.1 + i * 0.05}>
+              <button
+                onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                className="w-full text-left p-5 rounded-2xl transition-all duration-300"
+                style={{ background: openIdx === i ? B.glass : "transparent", border: `1px solid ${B.glassBorder}` }}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium pr-4" style={{ fontFamily: font.body, color: B.accent }}>{faq.q}</span>
+                  <span className="text-lg flex-shrink-0 transition-transform duration-300" style={{ color: B.muted, transform: openIdx === i ? "rotate(45deg)" : "rotate(0deg)" }}>+</span>
+                </div>
+                {openIdx === i && (
+                  <p className="text-sm mt-3 leading-relaxed" style={{ fontFamily: font.body, color: B.muted }}>{faq.a}</p>
+                )}
+              </button>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── FOOTER ──────────────────────────────────────────────────────────────────
+
+function Footer() {
+  return (
+    <footer className="border-t px-6 py-12" style={{ borderColor: B.glassBorder }}>
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <div className="w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-bold" style={{ background: B.glassBorder, color: B.accent, fontFamily: font.display }}>C</div>
+          <span className="text-xs" style={{ fontFamily: font.body, color: B.muted }}>© {new Date().getFullYear()} Carmona OS. All rights reserved.</span>
+        </div>
+        <div className="flex items-center gap-6">
+          <a href="https://www.instagram.com/carmonafitness" target="_blank" rel="noopener noreferrer" className="text-xs transition-colors hover:underline" style={{ fontFamily: font.body, color: B.muted }}>Instagram</a>
+          <a href="mailto:support@carmonaos.com" className="text-xs transition-colors hover:underline" style={{ fontFamily: font.body, color: B.muted }}>Support</a>
+          <span className="text-xs" style={{ fontFamily: font.body, color: B.muted }}>Privacy</span>
+          <span className="text-xs" style={{ fontFamily: font.body, color: B.muted }}>Terms</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
 function FeaturesSection() {
   return (
     <section className="relative py-28 px-6">
@@ -655,7 +812,7 @@ function FinalCTA() {
           </p>
         </FadeIn>
         <FadeIn delay={0.2}>
-          <CTAButton>Initialize Your Protocol →</CTAButton>
+          <CTAButton onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}>Reserve Your Spot →</CTAButton>
         </FadeIn>
       </div>
     </section>
@@ -707,6 +864,9 @@ export default function CarmonaOS() {
         <StatsBar />
         <RecipeSection />
         <FeaturesSection />
+
+        <WaitlistSection />
+        <FAQSection />
         <ProgramArc />
         <ProofSection />
         <Pricing />
