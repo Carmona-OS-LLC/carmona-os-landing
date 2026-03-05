@@ -14,7 +14,7 @@ const IMAGES = {
   aux: "/biceps.jpeg",
   watch: "/biceps.jpeg",
   tank: "/Abs.png",
-  profile: "/untitled-16.jpg",
+  profile: "/Abs.png",
 };
 // PRODUCTION: Replace these with your CDN URLs.
 // Export hero-cover.jpg at TWO sizes:
