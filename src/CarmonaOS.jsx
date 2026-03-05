@@ -183,8 +183,8 @@ function Nav() {
           <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold" style={{ background: B.glassBorder, color: B.accent, fontFamily: font.display }}>C</div>
           <span className="text-sm font-medium" style={{ color: B.accent }}>Carmona OS</span>
         </div>
-        <button className="px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03]" style={{ fontFamily: font.body, background: B.accent, color: B.bg }}>
-          Start Your Protocol
+        <button className="px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 hover:scale-[1.03]" style={{ fontFamily: font.body, background: B.accent, color: B.bg }} onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}>
+          Join Waitlist
         </button>
       </div>
     </motion.nav>
@@ -196,8 +196,8 @@ function StickyMobileCTA({ visible }) {
     <AnimatePresence>
       {visible && (
         <motion.div initial={{ y: 100 }} animate={{ y: 0 }} exit={{ y: 100 }} transition={{ duration: 0.3 }} className="fixed bottom-0 left-0 right-0 z-50 sm:hidden p-4" style={{ background: `linear-gradient(to top, ${B.bg} 60%, transparent)` }}>
-          <button className="w-full py-3.5 rounded-full text-sm font-semibold tracking-wide" style={{ fontFamily: font.body, background: B.accent, color: B.bg }}>
-            Start Your Protocol — $19.99/mo
+          <button className="w-full py-3.5 rounded-full text-sm font-semibold tracking-wide" style={{ fontFamily: font.body, background: B.accent, color: B.bg }} onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}>
+            Join Waitlist — $19.99/mo
           </button>
         </motion.div>
       )}
@@ -735,8 +735,8 @@ function Pricing() {
                   </div>
                 ))}
               </div>
-              <button className="w-full py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]" style={{ fontFamily: font.body, background: B.accent, color: B.bg }}>
-                Initialize Your Protocol →
+              <button className="w-full py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]" style={{ fontFamily: font.body, background: B.accent, color: B.bg }} onClick={() => document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" })}>
+                Reserve Your Spot →
               </button>
               <p className="text-xs text-center mt-4" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.2)" }}>Cancel anytime. No contracts. No friction.</p>
             </GlassCard>
