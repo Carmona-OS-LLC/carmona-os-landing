@@ -11,7 +11,7 @@ const IMAGES = {
   shoulders: "/untitled-16.jpg",
   legs: "/Matthew_Carmona_061223_0268.jpg.jpeg",
   back: "/Matthew_Carmona_020524_0285.jpg",
-  aux: "/IMG_0840.png.jpeg",
+  aux: "/biceps.jpeg",
   watch: "/biceps.jpeg",
   tank: "/Abs.png",
   profile: "/untitled-16.jpg",
