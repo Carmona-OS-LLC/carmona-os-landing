@@ -3,15 +3,6 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 
 // ─── BRAND CONSTANTS ─────────────────────────────────────────────────────────
 
-const B = {
-  bg: "#0A0A0A",
-  surface: "#111111",
-  accent: "#E8E8E8",
-  muted: "#6B6B6B",
-  glass: "rgba(255,255,255,0.04)",
-  glassBorder: "rgba(255,255,255,0.08)",
-};
-
 // ─── IMAGES ──────────────────────────────────────────────────────────────────
 // PRODUCTION: Replace these with your CDN URLs.
 // Export hero-cover.jpg at TWO sizes:
