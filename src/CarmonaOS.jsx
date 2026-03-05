@@ -7,9 +7,9 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 const IMAGES = {
   hero: "/hero-cover.jpg",
   shoulders: "/untitled-16.jpg",
-  legs: "/Matthew_Carmona_061223_0268_jpg.jpeg",
+  legs: "/Matthew_Carmona_061223_0268.jpg.jpeg",
   back: "/Matthew_Carmona_020524_0285.jpg",
-  aux: "/IMG_0840_png.jpeg",
+  aux: "/IMG_0840.png.jpeg",
   watch: "/photo-watch.jpeg",
   tank: "/Matthew_Carmona_051324_0188.jpg",
   profile: "/untitled-16.jpg",
