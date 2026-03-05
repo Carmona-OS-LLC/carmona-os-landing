@@ -10,11 +10,11 @@ const IMAGES = {
   hero: "/hero-cover.jpg",
   shoulders: "/untitled-16.jpg",
   legs: "/Matthew_Carmona_061223_0268.jpg.jpeg",
-  back: "/Matthew_Carmona_020524_0285.jpg",
-  aux: "/biceps.jpeg",
+  back: "/biceps.jpeg",
+  aux: "/Abs.png",
   watch: "/biceps.jpeg",
   tank: "/Abs.png",
-  profile: "/Abs.png",
+  profile: "/Matthew_Carmona_020524_0285.jpg",
 };
 // PRODUCTION: Replace these with your CDN URLs.
 // Export hero-cover.jpg at TWO sizes:
