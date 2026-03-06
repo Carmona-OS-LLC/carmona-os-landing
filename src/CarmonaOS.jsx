@@ -53,8 +53,8 @@ const font = {
 
 const STATS = [
   { value: "45", unit: "min", label: "Sessions. Full volume." },
-  { value: "5", unit: "", label: "Training days. Zero redundancy." },
-  { value: "Smart", unit: "", label: "Every session adapts to you." },
+  { value: "2", unit: "", label: "Training tracks. Your choice." },
+  { value: "81", unit: "", label: "Exercises. Intelligently rotated." },
 ];
 
 const FEATURES = [
@@ -91,14 +91,14 @@ const FEATURES = [
 ];
 
 const PRICING_FEATURES = [
-  "Intelligent 5-day programming",
-  "Post-session debrief in Matthew's voice",
-  "Personalized macro targets",
-  "Protocol nutrition system",
-  "Matthew's Take weekly editorial",
-  "Before & Now progress tracking",
-  "Program arc visibility",
-  "Double-progression engine",
+  "Two tracks: Essentials (PPL) + Carmona Method (5-day)",
+  "81-exercise pool with intelligent rotation",
+  "AI post-session debrief in Matthew's voice",
+  "Double-progression engine with auto-promotion",
+  "Multi-block periodization (Onramp → Accumulation → Specialization)",
+  "Personalized macro targets and nutrition protocol",
+  "Pro mode (60 min) + Corporate mode (45 min)",
+  "3 inputs to your first workout. No account wall.",
 ];
 
 const FAQ_DATA = [
@@ -300,6 +300,61 @@ function RecipeSection() {
   );
 }
 
+// ─── TWO TRACKS ──────────────────────────────────────────────────────────────
+
+function TwoTracks() {
+  return (
+    <section style={{ background: B.bg, padding: "80px 0 60px" }}>
+      <div className="max-w-3xl mx-auto px-6">
+        <FadeIn><SectionLabel>Two Tracks</SectionLabel></FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-[1.1]" style={{ fontFamily: font.display, color: B.accent }}>
+            Choose how you train.<br />
+            <span className="italic font-normal" style={{ color: B.muted }}>Switch anytime.</span>
+          </h2>
+        </FadeIn>
+        <FadeIn delay={0.15}>
+          <p className="text-sm leading-relaxed mb-10" style={{ fontFamily: font.body, color: B.muted }}>
+            Two philosophies. Same exercise pool. Same progression engine. Same standard.
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <FadeIn delay={0.2}>
+            <div className="rounded-2xl p-6 h-full" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(200,169,126,0.25)" }}>
+              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ fontFamily: font.body, color: "#C8A97E" }}>Essentials</p>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: font.display, color: B.accent }}>The foundation.</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ fontFamily: font.body, color: B.muted }}>
+                Push / Pull / Legs. Compound-first sequencing. Three experience tiers — Foundation, Growth, Peak — that scale with you. Every set productive. The most efficient path to looking great.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["3-day PPL rotation", "Compound-first", "3 tiers"].map(t => (
+                  <span key={t} className="text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: font.body, color: "rgba(200,169,126,0.6)", border: "1px solid rgba(200,169,126,0.15)" }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <div className="rounded-2xl p-6 h-full" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <p className="text-xs tracking-[0.2em] uppercase mb-3" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.5)" }}>The Carmona Method</p>
+              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: font.display, color: B.accent }}>The evolution.</h3>
+              <p className="text-sm leading-relaxed mb-4" style={{ fontFamily: font.body, color: B.muted }}>
+                5-day modified antagonist split. Machine and cable dominant. Pre-exhaust openers. Lengthened-position emphasis. The programming that's still producing gains after 25 years. High volume. High intent.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["5-day split", "Pre-exhaust", "Machine dominant"].map(t => (
+                  <span key={t} className="text-[10px] tracking-wide uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.3)", border: "1px solid rgba(255,255,255,0.08)" }}>{t}</span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── FEATURES ────────────────────────────────────────────────────────────────
 
 
@@ -308,10 +363,10 @@ function RecipeSection() {
 
 function EngineMockup() {
   const exercises = [
-    { name: "Incline DB Press", sets: "4 × 8", weight: "75 lb", tag: "Upper Shelf", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
-    { name: "Cable Flye", sets: "3 × 12", weight: "30 lb", tag: "Inner Tie-in", status: "● Hold", statusColor: "rgba(255,255,255,0.4)", statusBg: "rgba(255,255,255,0.04)" },
-    { name: "Seated Row", sets: "4 × 10", weight: "135 lb", tag: "Lat Width", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
-    { name: "Lateral Raise", sets: "3 × 15", weight: "20 lb", tag: "Shoulder Cap", status: "● Reinforce", statusColor: "#C8A97E", statusBg: "rgba(200,169,126,0.08)" },
+    { name: "Wide-Grip Machine Press", sets: "3 × 10", weight: "155 lb", tag: "Outer Pec Width", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Incline Machine Press", sets: "3 × 10", weight: "115 lb", tag: "Upper Shelf", status: "● Hold", statusColor: "rgba(255,255,255,0.4)", statusBg: "rgba(255,255,255,0.04)" },
+    { name: "Cable High-to-Low Flies", sets: "3 × 12", weight: "30 lb", tag: "Sternal Striations", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Straight-Bar Cable Curls", sets: "3 × 10", weight: "65 lb", tag: "Bicep Density", status: "● Reinforce", statusColor: "#C8A97E", statusBg: "rgba(200,169,126,0.08)" },
   ];
   return (
     <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "#0A0A0A", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -846,6 +901,7 @@ export default function CarmonaOS() {
         <Hero />
         <StatsBar />
         <RecipeSection />
+        <TwoTracks />
         <FeaturesSection />
 
         <WaitlistSection />
