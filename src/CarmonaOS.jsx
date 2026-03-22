@@ -54,7 +54,7 @@ const font = {
 const STATS = [
   { value: "45", unit: "min", label: "Sessions. Full volume." },
   { value: "2", unit: "", label: "Training tracks. Your choice." },
-  { value: "81", unit: "", label: "Exercises. Intelligently rotated." },
+  { value: "90+", unit: "", label: "Exercises. Intelligently rotated." },
 ];
 
 const FEATURES = [
@@ -65,9 +65,9 @@ const FEATURES = [
     imgKey: null,
   },
   {
-    label: "Matthew's Take",
-    title: "Not content. The actual reasoning behind your program.",
-    body: "Every week, a direct drop from Matthew — NASM-certified trainer, competitive physique athlete, former Meta executive. Not motivational copy. Not generic fitness advice. The inside reasoning on why your sessions are built the way they are, what the current phase is targeting, and what he's thinking about your arc right now. Most coaches charge for this access. It's built into your subscription.",
+    label: "Carmona AI",
+    title: "Your coach. Always on. Never generic.",
+    body: "CarmonAI is Matthew's voice, built into the app. Ask anything — what to order at a client dinner, how to adjust when you're traveling, what this exercise is building and why it's in your program today. It has your full context: your track, your block, your recent sessions, your macros. No generic answers. No hedging. The kind of directness you'd pay a real coach for, available between every set.",
     imgKey: "profile",
   },
   {
@@ -92,17 +92,17 @@ const FEATURES = [
 
 const PRICING_FEATURES = [
   "Two tracks: Essentials (PPL) + Carmona Method (5-day)",
-  "81-exercise pool with intelligent rotation",
+  "90+ exercises with intelligent rotation and recency-based variety",
+  "CarmonAI — your personal coach, always in context",
   "AI post-session debrief in Matthew's voice",
   "Double-progression engine with auto-promotion",
   "Multi-block periodization (Onramp → Accumulation → Specialization)",
   "Personalized macro targets and nutrition protocol",
-  "Pro mode (60 min) + Corporate mode (45 min)",
-  "3 inputs to your first workout. No account wall.",
+  "Full sessions (55–60 min) + 45 Min mode for time-compressed days",
 ];
 
 const FAQ_DATA = [
-  { q: "Do I need to be advanced?", a: "No — but you need to be serious. Carmona OS is built for people training with intent. If you've been going to the gym consistently and want a system precise enough to actually move the needle on your physique, this will do it." },
+  { q: "Do I need to be advanced?", a: "No — but you need to be serious. Carmona OS is built for people training with intent. The Foundation tier is designed for those returning to the gym or starting fresh. If you're ready to train with a system instead of improvising, this is built for you." },
   { q: "What equipment do I need?", a: "A commercial gym. Barbells, cables, machines — the full toolkit. This is not a home workout program." },
   { q: "How is this different from RP Hypertrophy or Caliber?", a: "RP is science-heavy and manual — it asks a lot from you. Caliber is coach-dependent and costs 10x as much. Carmona OS runs itself, adapts to your data, and gives you a coach's interpretation after every session. One methodology, one voice, no work on your end beyond showing up." },
   { q: "Can I cancel?", a: "Yes, anytime. No contracts, no friction. Access continues until the end of your billing period." },
@@ -779,7 +779,7 @@ function Pricing() {
                 <span className="text-5xl font-bold" style={{ fontFamily: font.display, color: B.accent }}>$19.99</span>
                 <span className="text-base" style={{ fontFamily: font.body, color: B.muted }}>/mo</span>
               </div>
-              <p className="text-xs mb-8" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.3)" }}>Founding Member Rate · Locks your price permanently</p>
+              <p className="text-xs mb-8" style={{ fontFamily: font.body, color: "rgba(255,255,255,0.3)" }}>3 sessions free · No credit card required · Founding member rate locks permanently</p>
               <div className="space-y-3 mb-8">
                 {PRICING_FEATURES.map((f, i) => (
                   <div key={i} className="flex items-center gap-3">
