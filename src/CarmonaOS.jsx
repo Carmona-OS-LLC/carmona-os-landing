@@ -363,10 +363,10 @@ function TwoTracks() {
 
 function EngineMockup() {
   const exercises = [
-    { name: "Wide-Grip Machine Press", sets: "3 × 10", weight: "155 lb", tag: "Outer Pec Width", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
-    { name: "Incline Machine Press", sets: "3 × 10", weight: "115 lb", tag: "Upper Shelf", status: "● Hold", statusColor: "rgba(255,255,255,0.4)", statusBg: "rgba(255,255,255,0.04)" },
-    { name: "Cable High-to-Low Flies", sets: "3 × 12", weight: "30 lb", tag: "Sternal Striations", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
-    { name: "Straight-Bar Cable Curls", sets: "3 × 10", weight: "65 lb", tag: "Bicep Density", status: "● Reinforce", statusColor: "#C8A97E", statusBg: "rgba(200,169,126,0.08)" },
+    { name: "Barbell Bench Press", sets: "3 × 8", weight: "185 lb", tag: "Horizontal Mass", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Incline Dumbbell Press", sets: "3 × 10", weight: "75 lb", tag: "Upper Shelf", status: "● Hold", statusColor: "rgba(255,255,255,0.4)", statusBg: "rgba(255,255,255,0.04)" },
+    { name: "Incline Dumbbell Fly", sets: "2 × 12", weight: "35 lb", tag: "Upper Chest Isolation", status: "▲ Promote", statusColor: "#4ADE80", statusBg: "rgba(74,222,128,0.1)" },
+    { name: "Cable Overhead Extension", sets: "2 × 12", weight: "50 lb", tag: "Tricep Long Head", status: "● Reinforce", statusColor: "#C8A97E", statusBg: "rgba(200,169,126,0.08)" },
   ];
   return (
     <div className="rounded-2xl overflow-hidden aspect-square flex flex-col" style={{ background: "#0A0A0A", border: "1px solid rgba(255,255,255,0.06)" }}>
@@ -375,11 +375,11 @@ function EngineMockup() {
           <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Inter', sans-serif" }}>Next Session</span>
           <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ background: "rgba(200,169,126,0.08)", color: "#C8A97E", fontFamily: "'Inter', sans-serif" }}>Block 2 · Ramp</span>
         </div>
-        <span className="text-base font-medium" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Playfair Display', serif" }}>Chest & Biceps</span>
+        <span className="text-base font-medium" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Playfair Display', serif" }}>Push</span>
         <div className="flex gap-3 mt-2">
-          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>6 exercises</span>
-          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>~52 min</span>
-          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(200,169,126,0.15)", color: "#C8A97E", fontFamily: "'Inter', sans-serif" }}>Pro Mode</span>
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>7 exercises</span>
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "'Inter', sans-serif" }}>~55 min</span>
+          <span className="text-[10px] px-2.5 py-0.5 rounded-full" style={{ border: "1px solid rgba(200,169,126,0.15)", color: "#C8A97E", fontFamily: "'Inter', sans-serif" }}>Full</span>
         </div>
       </div>
       <div className="flex-1 px-5 py-3 space-y-0 overflow-hidden">
@@ -473,7 +473,7 @@ function DebriefMockup() {
               <span className="block text-[9px]" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'Inter', sans-serif" }}>Post-Session Debrief</span>
             </div>
           </div>
-          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Inter', sans-serif" }}>Chest & Biceps</span>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'Inter', sans-serif" }}>Push</span>
         </div>
       </div>
       <div className="flex-1 px-5 py-4 overflow-hidden">
