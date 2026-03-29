@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 // ─── HERO VARIANTS (swappable via ?v=1, ?v=2, ?v=3) ────────────────────────
 const VARIANTS = {
   1: {
-    headline: "Look like you live\nin the gym.",
+    headline: "Look like you live in the gym.",
     headlineMuted: "Train like you don't.",
     sub: "Intelligent programming. A coach's voice after every session. 45 minutes and done.",
   },
   2: {
-    headline: "Your body is\na résumé.",
+    headline: "Your body is a résumé.",
     headlineMuted: "Get hired.",
     sub: "Structured training that fits your schedule. Personalized at every step.",
   },
   3: {
-    headline: "Pecs for less\nthan a salad.",
+    headline: "Pecs for less than a salad.",
     headlineMuted: "Way less.",
     sub: "A real training system — not a workout generator. Intentional programming. Always-on coaching.",
   },
@@ -172,7 +172,7 @@ export default function CarmonaOS() {
               <div className="fade-up fade-up-1" style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", marginBottom: "20px", fontWeight: 500 }}>
                 Launching soon
               </div>
-              <h1 className="fade-up fade-up-2" style={{ fontFamily: "var(--f-display)", fontSize: "clamp(40px, 8vw, 72px)", fontWeight: 500, lineHeight: 0.95, color: "var(--c-cream)", marginBottom: "8px", whiteSpace: "pre-line" }}>
+              <h1 className="fade-up fade-up-2" style={{ fontFamily: "var(--f-display)", fontSize: "clamp(40px, 8vw, 72px)", fontWeight: 500, lineHeight: 0.95, color: "var(--c-cream)", marginBottom: "8px" }}>
                 {hero.headline}
               </h1>
               <h1 className="fade-up fade-up-2" style={{ fontFamily: "var(--f-display)", fontSize: "clamp(40px, 8vw, 72px)", fontWeight: 400, fontStyle: "italic", lineHeight: 0.95, color: "var(--c-muted)", marginBottom: "28px" }}>
@@ -194,7 +194,7 @@ export default function CarmonaOS() {
         {/* ═══ VALUE PILLARS ═══ */}
         <section style={{ padding: "80px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
               {[
                 {
                   num: "01",
@@ -232,6 +232,19 @@ export default function CarmonaOS() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ═══ APP SCREENSHOT ═══ */}
+        <section style={{ padding: "80px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
+          <div style={{ maxWidth: "400px", margin: "0 auto", textAlign: "center" }}>
+            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", marginBottom: "16px", fontWeight: 500 }}>Inside the app</p>
+            <div style={{ borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}>
+              <img src="/app-debrief.png" alt="Carmona OS post-session debrief" style={{ width: "100%", display: "block" }} />
+            </div>
+            <p style={{ fontSize: "13px", color: "var(--c-muted)", marginTop: "16px", fontStyle: "italic", fontFamily: "var(--f-display)" }}>
+              Your post-session debrief — what you built and why it matters.
+            </p>
           </div>
         </section>
 
