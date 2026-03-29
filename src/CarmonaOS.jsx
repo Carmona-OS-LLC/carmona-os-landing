@@ -27,6 +27,16 @@ const IMAGES = {
   proof: "/Matthew_Carmona_020524_0285.jpg",
 };
 
+// ─── UTM HELPER ────────────────────────────────────────────────────────────
+function getUtmParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || "organic",
+    utm_medium: params.get("utm_medium") || "none",
+    utm_campaign: params.get("utm_campaign") || "none",
+  };
+}
+
 // ─── EMAIL FORM ─────────────────────────────────────────────────────────────
 function EmailCapture({ variant = "hero" }) {
   const [email, setEmail] = useState("");
@@ -37,13 +47,29 @@ function EmailCapture({ variant = "hero" }) {
     if (!email || status === "sending") return;
     setStatus("sending");
     try {
+      const utm = getUtmParams();
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, variant }),
+        body: JSON.stringify({
+          email,
+          variant,
+          source: utm.utm_source,
+          medium: utm.utm_medium,
+          campaign: utm.utm_campaign,
+        }),
       });
+      if (res.ok) {
+        setEmail("");
+        // Fire Meta Pixel Lead event
+        if (typeof window.fbq !== "undefined") {
+          window.fbq("track", "Lead", {
+            content_name: "waitlist_signup",
+            content_category: variant,
+          });
+        }
+      }
       setStatus(res.ok ? "success" : "error");
-      if (res.ok) setEmail("");
     } catch {
       setStatus("error");
     }
@@ -149,7 +175,7 @@ export default function CarmonaOS() {
               onClick={() => document.getElementById("waitlist-bottom")?.scrollIntoView({ behavior: "smooth" })}
               style={{ padding: "8px 18px", borderRadius: "8px", background: "var(--c-cream)", color: "var(--c-bg)", fontSize: "12px", fontWeight: 600, border: "none", cursor: "pointer", fontFamily: "var(--f-body)", letterSpacing: "0.02em" }}
             >
-              Join Waitlist
+              Get Early Access
             </button>
           </div>
         </nav>
