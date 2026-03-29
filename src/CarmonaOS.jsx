@@ -185,66 +185,73 @@ export default function CarmonaOS() {
                 <EmailCapture variant={`hero-v${v}`} />
               </div>
               <p className="fade-up fade-up-5" style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", marginTop: "12px" }}>
-                3 sessions free · No credit card required · Founding members get early access
+                Founding members get early access
               </p>
             </div>
           </div>
         </section>
 
         {/* ═══ VALUE PILLARS ═══ */}
-        <section style={{ padding: "80px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
+        <section style={{ padding: "48px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
               {[
                 {
                   num: "01",
                   title: "Intentional programming.",
-                  body: "Every session is part of a structured arc — compound foundations, targeted volume phases, deloads timed to your data. Not random workouts. A system that knows where you are and what comes next.",
+                  body: "A structured arc — not random workouts. Every session has a reason.",
                 },
                 {
                   num: "02",
                   title: "Personalized at every step.",
-                  body: "Your weights. Your progression. Your macros. Your post-session debrief — written in a real coach's voice with full context on what you just built and why it matters.",
+                  body: "Your weights. Your macros. A coach's debrief after every session.",
                 },
                 {
                   num: "03",
                   title: "Fits into your life.",
-                  body: "Full sessions when you have time. 45 Min mode when you don't. Same exercise pool, same progression engine, same standard. No compromises.",
+                  body: "Full sessions or 45 Min mode. Same engine, same standard.",
                 },
                 {
                   num: "04",
                   title: "Built by a practitioner.",
-                  body: "NASM-certified trainer. Classic Physique competitor. 9-5 professional. This is the system behind the physique — built by someone who refuses to choose between the boardroom and the gym.",
+                  body: "NASM-certified. Classic Physique competitor. 9-5 professional.",
                 },
               ].map((p, i) => (
                 <div
                   key={i}
                   style={{
-                    padding: "32px",
-                    borderRadius: "16px",
+                    padding: "20px",
+                    borderRadius: "14px",
                     border: "1px solid var(--c-glass-border)",
                     background: "var(--c-glass)",
                   }}
                 >
-                  <span style={{ fontSize: "11px", letterSpacing: "0.2em", color: "var(--c-gold)", fontWeight: 500 }}>{p.num}</span>
-                  <h3 style={{ fontFamily: "var(--f-display)", fontSize: "22px", fontWeight: 500, color: "var(--c-cream)", marginTop: "12px", marginBottom: "12px", lineHeight: 1.2 }}>{p.title}</h3>
-                  <p style={{ fontSize: "14px", lineHeight: 1.65, color: "var(--c-muted)" }}>{p.body}</p>
+                  <span style={{ fontSize: "9px", letterSpacing: "0.2em", color: "var(--c-gold)", fontWeight: 500 }}>{p.num}</span>
+                  <h3 style={{ fontFamily: "var(--f-display)", fontSize: "17px", fontWeight: 500, color: "var(--c-cream)", marginTop: "8px", marginBottom: "6px", lineHeight: 1.2 }}>{p.title}</h3>
+                  <p style={{ fontSize: "12px", lineHeight: 1.5, color: "var(--c-muted)" }}>{p.body}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ═══ APP SCREENSHOT ═══ */}
-        <section style={{ padding: "80px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
-          <div style={{ maxWidth: "400px", margin: "0 auto", textAlign: "center" }}>
-            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", marginBottom: "16px", fontWeight: 500 }}>Inside the app</p>
-            <div style={{ borderRadius: "24px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 24px 80px rgba(0,0,0,0.5)" }}>
-              <img src="/app-debrief.png" alt="Carmona OS post-session debrief" style={{ width: "100%", display: "block" }} />
-            </div>
-            <p style={{ fontSize: "13px", color: "var(--c-muted)", marginTop: "16px", fontStyle: "italic", fontFamily: "var(--f-display)" }}>
-              Your post-session debrief — what you built and why it matters.
-            </p>
+        {/* ═══ APP PEEK — 3 screenshots ═══ */}
+        <section style={{ padding: "48px 0 0", borderTop: "1px solid var(--c-glass-border)", overflow: "hidden" }}>
+          <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "20px" }}>Inside the app</p>
+          <div style={{ display: "flex", gap: "16px", overflowX: "auto", padding: "0 24px 24px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+            {[
+              { src: "/app-onboarding.png", label: "Your program. Built for you." },
+              { src: "/app-home.png", label: "Always know what's next." },
+              { src: "/app-debrief.png", label: "A coach's take after every session." },
+            ].map((s, i) => (
+              <div key={i} style={{ flex: "0 0 220px", scrollSnapAlign: "center", textAlign: "center" }}>
+                <div style={{ borderRadius: "18px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "380px", position: "relative" }}>
+                  <img src={s.src} alt={s.label} style={{ width: "100%", display: "block" }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "60px", background: "linear-gradient(to top, var(--c-bg), transparent)" }} />
+                </div>
+                <p style={{ fontSize: "11px", color: "var(--c-muted)", marginTop: "10px", fontFamily: "var(--f-body)" }}>{s.label}</p>
+              </div>
+            ))}
           </div>
         </section>
 
