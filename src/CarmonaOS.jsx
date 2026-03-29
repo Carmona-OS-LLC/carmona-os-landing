@@ -237,8 +237,9 @@ export default function CarmonaOS() {
 
         {/* ═══ APP PEEK — 3 screenshots ═══ */}
         <section style={{ padding: "48px 0 0", borderTop: "1px solid var(--c-glass-border)", overflow: "hidden" }}>
-          <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "20px" }}>Inside the app</p>
-          <div style={{ display: "flex", gap: "16px", overflowX: "auto", padding: "0 24px 24px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "20px" }}>Inside the app</p>
+            <div style={{ display: "flex", gap: "16px", overflowX: "auto", padding: "0 24px 24px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "center" }}>
             {[
               { src: "/app-onboarding.png", label: "Your program. Built for you." },
               { src: "/app-home.png", label: "Always know what's next." },
@@ -252,6 +253,7 @@ export default function CarmonaOS() {
                 <p style={{ fontSize: "11px", color: "var(--c-muted)", marginTop: "10px", fontFamily: "var(--f-body)" }}>{s.label}</p>
               </div>
             ))}
+          </div>
           </div>
         </section>
 
