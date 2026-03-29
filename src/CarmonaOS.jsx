@@ -261,7 +261,7 @@ export default function CarmonaOS() {
         <section style={{ padding: "64px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
             <blockquote style={{ fontFamily: "var(--f-display)", fontSize: "20px", fontStyle: "italic", color: "var(--c-cream)", lineHeight: 1.5, marginBottom: "16px" }}>
-              I built this because nothing on the market was designed for how I actually live — time-compressed, results-oriented, and unwilling to lower the standard on either side.
+              I built Carmona OS because nothing on the market was designed for how I actually live — time-compressed, results-oriented, and unwilling to lower the standard on either side.
             </blockquote>
             <p style={{ fontSize: "13px", color: "var(--c-muted)" }}>
               <span style={{ color: "var(--c-cream)", fontWeight: 500 }}>Matthew Carmona</span>
