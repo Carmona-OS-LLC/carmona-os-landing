@@ -50,7 +50,7 @@ function EmailCapture({ variant = "hero" }) {
       const utm = getUtmParams();
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
           email,
           variant,
@@ -59,9 +59,11 @@ function EmailCapture({ variant = "hero" }) {
           campaign: utm.utm_campaign,
         }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      const success = res.ok && data.ok;
+      if (success) {
         setEmail("");
-        // Fire Meta Pixel Lead event
+        // Fire Meta Pixel Lead event only after confirmed submission
         if (typeof window.fbq !== "undefined") {
           window.fbq("track", "Lead", {
             content_name: "waitlist_signup",
@@ -69,7 +71,7 @@ function EmailCapture({ variant = "hero" }) {
           });
         }
       }
-      setStatus(res.ok ? "success" : "error");
+      setStatus(success ? "success" : "error");
     } catch {
       setStatus("error");
     }
@@ -210,8 +212,8 @@ export default function CarmonaOS() {
               <div className="fade-up fade-up-4">
                 <EmailCapture variant={`hero-v${v}`} />
               </div>
-              <p className="fade-up fade-up-5" style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)", marginTop: "12px" }}>
-                Founding members get early access
+              <p className="fade-up fade-up-5" style={{ fontSize: "12px", color: "rgba(200,169,126,0.55)", marginTop: "12px" }}>
+                Your first workouts are on me.
               </p>
             </div>
           </div>
@@ -302,7 +304,7 @@ export default function CarmonaOS() {
               Join the waitlist.
             </h2>
             <p style={{ fontSize: "14px", color: "var(--c-muted)", marginBottom: "28px" }}>
-              Early access opens soon. Founding members get in first.
+              Early access opens soon. Your first workouts are on me.
             </p>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <EmailCapture variant={`bottom-v${v}`} />
@@ -318,8 +320,10 @@ export default function CarmonaOS() {
               <span style={{ fontSize: "11px", color: "var(--c-muted)" }}>© {new Date().getFullYear()} Carmona OS</span>
             </div>
             <div style={{ display: "flex", gap: "20px" }}>
+              <a href="/privacy.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Privacy</a>
+              <a href="/terms.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Terms</a>
               <a href="https://www.instagram.com/carmonafitness" target="_blank" rel="noopener noreferrer" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Instagram</a>
-              <a href="mailto:support@carmonaos.com" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Support</a>
+              <a href="mailto:hello@matthewcarmona.com" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Support</a>
             </div>
           </div>
         </footer>
