@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Your Account — Carmona OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --f-display: 'Playfair Display', Georgia, serif;
+      --f-body: 'DM Sans', system-ui, sans-serif;
+      --c-bg: #0A0A0A;
+      --c-surface: #111111;
+      --c-cream: #F5F0E8;
+      --c-gold: #C8A97E;
+      --c-muted: #6B6B6B;
+      --c-glass: rgba(255,255,255,0.04);
+      --c-glass-border: rgba(255,255,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; }
+    ::selection { background: rgba(200,169,126,0.25); color: #fff; }
+
+    body {
+      font-family: var(--f-body);
+      background: var(--c-bg);
+      color: var(--c-cream);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--c-glass-border);
+    }
+    .nav-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-cream);
+    }
+    .nav-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--c-cream);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    /* ── Content ── */
+    .container {
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    h1 {
+      font-family: var(--f-display);
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--c-cream);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--c-muted);
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: var(--f-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--c-cream);
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--c-muted);
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: var(--c-gold);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      margin: 0 0 48px;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+    .steps li {
+      counter-increment: step;
+      font-size: 14px;
+      color: var(--c-cream);
+      padding: 14px 0 14px 44px;
+      position: relative;
+      border-bottom: 1px solid var(--c-glass-border);
+    }
+    .steps li:first-child {
+      border-top: 1px solid var(--c-glass-border);
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 26px;
+      height: 26px;
+      background: var(--c-glass);
+      border: 1px solid var(--c-glass-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--c-gold);
+    }
+    .steps li span {
+      color: var(--c-muted);
+    }
+
+    /* ── Data Table ── */
+    .data-table {
+      width: 100%;
+      margin: 0 0 8px;
+      border-collapse: collapse;
+    }
+    .data-table th,
+    .data-table td {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--c-glass-border);
+    }
+    .data-table thead tr {
+      border-top: 1px solid var(--c-glass-border);
+    }
+    .data-table th {
+      color: var(--c-gold);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+    }
+    .data-table td {
+      color: var(--c-cream);
+    }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .tag-deleted {
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+    }
+    .tag-retained {
+      background: rgba(200, 169, 126, 0.1);
+      color: var(--c-gold);
+    }
+
+    .footnote {
+      font-size: 12px;
+      color: var(--c-muted);
+      margin-bottom: 48px;
+    }
+
+    /* ── CTA ── */
+    .cta-box {
+      margin-top: 48px;
+      padding: 28px;
+      background: var(--c-glass);
+      border: 1px solid var(--c-glass-border);
+      border-radius: 12px;
+    }
+    .cta-box p {
+      color: var(--c-cream);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .cta-box a {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--c-gold);
+    }
+
+    /* ── Divider ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--c-glass-border);
+      margin: 48px 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--c-glass-border);
+      padding: 24px;
+    }
+    .footer-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-display);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--c-cream);
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--c-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 11px;
+      color: var(--c-muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: var(--c-cream);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-icon">C</div>
+      <a href="/" class="nav-label">Carmona OS</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Delete Your Account</h1>
+    <p class="subtitle">We're sorry to see you go. Here's how to request account deletion and what happens to your data.</p>
+
+    <p class="section-label">How to request</p>
+    <ol class="steps">
+      <li>Send an email to <a href="mailto:support@carmonaos.com">support@carmonaos.com</a> <span>from the email address associated with your account.</span></li>
+      <li>Use the subject line: <strong>Account Deletion Request</strong></li>
+      <li><span>We'll verify your identity and confirm receipt within 2 business days.</span></li>
+      <li><span>Your account and associated data will be permanently deleted within 30 days of confirmation.</span></li>
+    </ol>
+
+    <hr class="section-divider">
+
+    <p class="section-label">What happens to your data</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email address &amp; profile</td>
+          <td><span class="tag tag-deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Workout history &amp; session logs</td>
+          <td><span class="tag tag-deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Preferences &amp; settings</td>
+          <td><span class="tag tag-deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>AI debrief &amp; coaching data</td>
+          <td><span class="tag tag-deleted">Deleted</span></td>
+        </tr>
+        <tr>
+          <td>Payment &amp; billing records</td>
+          <td><span class="tag tag-retained">Retained 7 yrs*</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="footnote">* Payment records are retained as required by applicable tax and financial regulations. These records are managed by Stripe and do not include full payment card details.</p>
+
+    <hr class="section-divider">
+
+    <p class="section-label">Important</p>
+    <p>Account deletion is <strong style="color: var(--c-cream);">permanent and irreversible</strong>. All workout data, progress history, and personalized programming will be lost. If you have an active subscription, please cancel it before requesting deletion to avoid further charges.</p>
+
+    <div class="cta-box">
+      <p>Ready to request deletion?</p>
+      <a href="mailto:support@carmonaos.com?subject=Account%20Deletion%20Request">Email support@carmonaos.com →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-icon">C</div>
+        <span class="footer-copy">© 2026 Carmona OS</span>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
