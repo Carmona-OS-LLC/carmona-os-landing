@@ -264,35 +264,35 @@ export default function CarmonaOS() {
         </section>
 
         {/* ═══ APP PEEK — 3 screenshots ═══ */}
-        <section style={{ padding: "48px 0 0", borderTop: "1px solid var(--c-glass-border)", overflow: "hidden" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "20px" }}>Inside the app</p>
-            <div style={{ display: "flex", gap: "16px", overflowX: "auto", padding: "0 24px 24px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "center" }}>
+        <section style={{ padding: "64px 0 0", borderTop: "1px solid var(--c-glass-border)", overflow: "hidden" }}>
+          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "28px" }}>Inside the app</p>
+            <div style={{ display: "flex", gap: "20px", overflowX: "auto", padding: "0 24px 32px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "center" }}>
             {[
-              { src: "/app-onboarding.png", label: "Your program. Built for you." },
-              { src: "/app-home.png", label: "Always know what's next." },
-              { src: "/app-debrief.png", label: "A coach's take after every session." },
+              { src: "/app-onboarding.png", label: "Personalized from day one." },
+              { src: "/app-home.png", label: "Every rep coached. Every set tracked." },
+              { src: "/app-debrief.png", label: "A real debrief after every session." },
             ].map((s, i) => (
-              <div key={i} style={{ flex: "0 0 220px", scrollSnapAlign: "center", textAlign: "center" }}>
-                <div style={{ borderRadius: "18px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "380px", position: "relative" }}>
+              <div key={i} style={{ flex: "0 0 260px", scrollSnapAlign: "center", textAlign: "center" }}>
+                <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "520px", position: "relative" }}>
                   <img src={s.src} alt={s.label} style={{ width: "100%", display: "block" }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "60px", background: "linear-gradient(to top, var(--c-bg), transparent)" }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "80px", background: "linear-gradient(to top, var(--c-bg), transparent)" }} />
                 </div>
-                <p style={{ fontSize: "11px", color: "var(--c-muted)", marginTop: "10px", fontFamily: "var(--f-body)" }}>{s.label}</p>
+                <p style={{ fontSize: "12px", color: "var(--c-muted)", marginTop: "14px", fontFamily: "var(--f-body)" }}>{s.label}</p>
               </div>
             ))}
           </div>
           </div>
         </section>
 
-        {/* ═══ FOUNDER QUOTE ═══ */}
+        {/* ═══ SOCIAL PROOF ═══ */}
         <section style={{ padding: "64px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
             <blockquote style={{ fontFamily: "var(--f-display)", fontSize: "20px", fontStyle: "italic", color: "var(--c-cream)", lineHeight: 1.5, marginBottom: "16px" }}>
-              I built Carmona OS because nothing on the market was designed for how I actually live — time-compressed, results-oriented, and unwilling to lower the standard on either side.
+              "It's really acting like a personal trainer would. I don't want to research — I just want someone to tell me what to do."
             </blockquote>
             <p style={{ fontSize: "13px", color: "var(--c-muted)" }}>
-              <span style={{ color: "var(--c-cream)", fontWeight: 500 }}>Matthew Carmona</span>
+              <span style={{ color: "var(--c-cream)", fontWeight: 500 }}>Cody</span> · Carmona OS subscriber
             </p>
           </div>
         </section>
@@ -322,7 +322,7 @@ export default function CarmonaOS() {
             <div style={{ display: "flex", gap: "20px" }}>
               <a href="/privacy.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Privacy</a>
               <a href="/terms.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Terms</a>
-              <a href="https://www.instagram.com/carmonafitness" target="_blank" rel="noopener noreferrer" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Instagram</a>
+              <a href="https://www.instagram.com/carmona" target="_blank" rel="noopener noreferrer" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Instagram</a>
               <a href="mailto:hello@matthewcarmona.com" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Support</a>
             </div>
           </div>
