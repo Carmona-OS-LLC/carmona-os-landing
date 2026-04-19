@@ -5,17 +5,17 @@ const VARIANTS = {
   1: {
     headline: "Look like you live in the gym.",
     headlineMuted: "Train like you don't.",
-    sub: "Intelligent programming. A coach's voice after every session. 45 minutes and done.",
+    sub: "Real programming. A coach's voice after every session. 45 minutes and done.",
   },
   2: {
-    headline: "Your body is a résumé.",
-    headlineMuted: "Get hired.",
-    sub: "Structured training that fits your schedule. Personalized at every step.",
+    headline: "You've been working out.",
+    headlineMuted: "Start seeing results.",
+    sub: "Real programming. Results you can't miss. By a Classic Physique competitor, for lifters who want the same.",
   },
   3: {
     headline: "Pecs for less than a salad.",
     headlineMuted: "Way less.",
-    sub: "A real training system — not a workout generator. Intentional programming. Always-on coaching.",
+    sub: "A real training system — not a workout generator. Real programming. Always-on coaching.",
   },
 };
 
