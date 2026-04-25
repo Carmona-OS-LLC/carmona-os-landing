@@ -1,21 +1,13 @@
 import { useState, useEffect } from "react";
 
-// ─── HERO VARIANTS (swappable via ?v=1, ?v=2, ?v=3) ────────────────────────
+// ─── HERO COPY (locked) ─────────────────────────────────────────────────────
 const VARIANTS = {
   1: {
-    headline: "Look like you live in the gym.",
-    headlineMuted: "Train like you don't.",
-    sub: "Real programming. A coach's voice after every session. 45 minutes and done.",
-  },
-  2: {
-    headline: "You've been working out.",
-    headlineMuted: "Start seeing results.",
-    sub: "Real programming. Results you can't miss. By a Classic Physique competitor, for lifters who want the same.",
-  },
-  3: {
-    headline: "Pecs for less than a salad.",
-    headlineMuted: "Way less.",
-    sub: "A real training system — not a workout generator. Real programming. Always-on coaching.",
+    headline: "Results you can't miss.",
+    headlineMuted: "A physique people notice.",
+    sub: "A training system that adapts as you train, tells you what to do today, and fits into a busy life.",
+    brandLine: "Real programming. A coach's voice after every session. 45 minutes and done.",
+    credit: "Built by Matthew Carmona, competitive bodybuilder and NASM-certified coach with a full-time day job.",
   },
 };
 
@@ -215,34 +207,48 @@ export default function CarmonaOS() {
               <p className="fade-up fade-up-5" style={{ fontSize: "12px", color: "rgba(200,169,126,0.55)", marginTop: "12px" }}>
                 Your first workouts are on me.
               </p>
+              <p className="fade-up fade-up-6" style={{ fontSize: "12px", lineHeight: 1.55, color: "var(--c-muted)", marginTop: "24px", maxWidth: "440px" }}>
+                {hero.credit}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ═══ VALUE PILLARS ═══ */}
-        <section style={{ padding: "48px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
+        {/* ═══ THE PROMISE ═══ */}
+        <section style={{ padding: "72px 24px 48px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <div style={{ maxWidth: "640px", marginBottom: "40px" }}>
+              <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, marginBottom: "18px" }}>
+                The promise
+              </p>
+              <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(28px, 4.5vw, 40px)", fontWeight: 500, color: "var(--c-cream)", lineHeight: 1.1, marginBottom: "20px" }}>
+                Built for people who want to look like they train.
+              </h2>
+              <p style={{ fontSize: "15px", lineHeight: 1.6, color: "var(--c-muted)" }}>
+                Most apps give you exercises. Carmona OS gives you a system: every session fits into a progression arc, every workout reflects your real performance, and every block has a purpose.
+              </p>
+            </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
               {[
                 {
                   num: "01",
-                  title: "Intentional programming.",
-                  body: "A structured arc — not random workouts. Every session has a reason.",
+                  title: "Programming with intent.",
+                  body: "A structured progression toward a physique people notice, not a feed of random workouts.",
                 },
                 {
                   num: "02",
-                  title: "Personalized at every step.",
-                  body: "Your weights. Your macros. A coach's debrief after every session.",
+                  title: "Personalized as you train.",
+                  body: "Weights, reps, and progressions evolve from what you actually do in the gym.",
                 },
                 {
                   num: "03",
-                  title: "Fits into your life.",
-                  body: "Full sessions or 45 Min mode. Same engine, same standard.",
+                  title: "Built for a real schedule.",
+                  body: "Full sessions when you have time. 45 Min mode when you don't.",
                 },
                 {
                   num: "04",
-                  title: "Built by a practitioner.",
-                  body: "NASM-certified. Classic Physique competitor. 9-5 professional.",
+                  title: "Made by someone who competes.",
+                  body: "Designed by a Classic Physique competitor who trains the way the app trains you.",
                 },
               ].map((p, i) => (
                 <div
@@ -285,11 +291,29 @@ export default function CarmonaOS() {
           </div>
         </section>
 
+        {/* ═══ FROM MATTHEW ═══ */}
+        <section style={{ padding: "80px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
+          <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+            <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, marginBottom: "18px" }}>
+              From Matthew
+            </p>
+            <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 500, color: "var(--c-cream)", lineHeight: 1.15, marginBottom: "24px" }}>
+              I built the app I wanted for myself.
+            </h2>
+            <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--c-muted)", marginBottom: "16px" }}>
+              I'm a competitive bodybuilder with a day job. I needed a training system that adapted to my week without losing the plot. Carmona OS is what I built: real programming, real progression, and a coach's voice after every session, in 45 minutes when I need it.
+            </p>
+            <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--c-muted)" }}>
+              I'm not selling PDFs or someone else's products. I built a system that gets results and fits into a busy life. I'm sharing it because I know both are possible.
+            </p>
+          </div>
+        </section>
+
         {/* ═══ SOCIAL PROOF ═══ */}
         <section style={{ padding: "64px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
           <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
             <blockquote style={{ fontFamily: "var(--f-display)", fontSize: "20px", fontStyle: "italic", color: "var(--c-cream)", lineHeight: 1.5, marginBottom: "16px" }}>
-              "It's really acting like a personal trainer would. I don't want to research — I just want someone to tell me what to do."
+              "It really feels like having a personal trainer. I don't want to research. I just want someone to tell me what to do."
             </blockquote>
             <p style={{ fontSize: "13px", color: "var(--c-muted)" }}>
               <span style={{ color: "var(--c-cream)", fontWeight: 500 }}>Cody</span> · Carmona OS subscriber
@@ -304,7 +328,7 @@ export default function CarmonaOS() {
               Join the waitlist.
             </h2>
             <p style={{ fontSize: "14px", color: "var(--c-muted)", marginBottom: "28px" }}>
-              Early access opens soon. Your first workouts are on me.
+              Early access opens May 15. Be first in line and get your first workouts on me.
             </p>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <EmailCapture variant={`bottom-v${v}`} />
