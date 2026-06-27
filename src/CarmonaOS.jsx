@@ -341,13 +341,13 @@ export default function CarmonaOS() {
           <div style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <div style={{ width: "20px", height: "20px", borderRadius: "4px", background: "rgba(255,255,255,0.08)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--f-display)", fontSize: "10px", fontWeight: 600, color: "var(--c-cream)" }}>C</div>
-              <span style={{ fontSize: "11px", color: "var(--c-muted)" }}>© {new Date().getFullYear()} Carmona OS</span>
+              <span style={{ fontSize: "11px", color: "var(--c-muted)" }}>© {new Date().getFullYear()} Carmona OS LLC</span>
             </div>
             <div style={{ display: "flex", gap: "20px" }}>
-              <a href="/privacy.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Privacy</a>
-              <a href="/terms.html" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Terms</a>
+              <a href="/privacy" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Privacy</a>
+              <a href="/terms" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Terms</a>
               <a href="https://www.instagram.com/carmona" target="_blank" rel="noopener noreferrer" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Instagram</a>
-              <a href="mailto:hello@matthewcarmona.com" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Support</a>
+              <a href="mailto:support@carmonaos.com" style={{ fontSize: "11px", color: "var(--c-muted)", textDecoration: "none" }}>Support</a>
             </div>
           </div>
         </footer>
