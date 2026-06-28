@@ -5,8 +5,7 @@ const VARIANTS = {
   1: {
     headline: "Results you can't miss.",
     headlineMuted: "A physique people notice.",
-    sub: "A training system that adapts as you train, tells you what to do today, and fits into a busy life.",
-    brandLine: "Real programming. A coach's voice after every session. 45 minutes and done.",
+    sub: "A training system that adapts as you train, reads every session, and tells you exactly what to do next — in 45 minutes when life is busy.",
     credit: "Built by Matthew Carmona, competitive bodybuilder and NASM-certified coach with a full-time day job.",
   },
 };
@@ -275,9 +274,10 @@ export default function CarmonaOS() {
             <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "28px" }}>Inside the app</p>
             <div style={{ display: "flex", gap: "20px", overflowX: "auto", padding: "0 24px 32px", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "center" }}>
             {[
-              { src: "/app-onboarding.png", label: "Personalized from day one." },
-              { src: "/app-home.png", label: "Every rep coached. Every set tracked." },
-              { src: "/app-debrief.png", label: "A real debrief after every session." },
+              { src: "/app-onboarding.png", label: "A program built around you from day one." },
+              { src: "/app-home.png", label: "Every set prescribed. Every rep coached." },
+              { src: "/app-debrief.png", label: "A coach's read after every session." },
+              { src: "/app-progress.png", label: "Watch every muscle group move, block by block." },
             ].map((s, i) => (
               <div key={i} style={{ flex: "0 0 260px", scrollSnapAlign: "center", textAlign: "center" }}>
                 <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "520px", position: "relative" }}>
@@ -328,7 +328,7 @@ export default function CarmonaOS() {
               Join the waitlist.
             </h2>
             <p style={{ fontSize: "14px", color: "var(--c-muted)", marginBottom: "28px" }}>
-              Early access opens May 15. Be first in line and get your first workouts on me.
+              Early access opens August 15. Be first in line and get your first workouts on me.
             </p>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <EmailCapture variant={`bottom-v${v}`} />
