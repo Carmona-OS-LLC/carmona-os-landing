@@ -275,7 +275,7 @@ export default function CarmonaOS() {
             <div style={{ display: "flex", gap: "20px", overflowX: "auto", padding: "0 24px 32px", scrollSnapType: "x mandatory", scrollPaddingLeft: "24px", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "flex-start" }}>
             {[
               { src: "/app-onboarding.png", label: "A program built around you from day one." },
-              { src: "/app-home.png", label: "Every set prescribed. Every rep coached." },
+              { src: "/app-home.png", label: "A demo and technique cues for every lift." },
               { src: "/app-debrief.png", label: "A coach's read after every session." },
               { src: "/app-progress.png", label: "Watch every muscle group move, block by block." },
             ].map((s, i) => (
