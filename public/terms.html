@@ -1,187 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service — Carmona OS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --f-display: 'Playfair Display', Georgia, serif;
-      --f-body: 'DM Sans', system-ui, sans-serif;
-      --c-bg: #0A0A0A;
-      --c-surface: #111111;
-      --c-cream: #F5F0E8;
-      --c-gold: #C8A97E;
-      --c-muted: #6B6B6B;
-      --c-glass-border: rgba(255,255,255,0.08);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { -webkit-font-smoothing: antialiased; }
-    body { background: var(--c-bg); color: var(--c-cream); font-family: var(--f-body); }
-    ::selection { background: rgba(200,169,126,0.25); color: #fff; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      padding: 16px 24px; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--c-glass-border);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px; text-decoration: none;
-    }
-    .nav-icon {
-      width: 28px; height: 28px; border-radius: 6px;
-      background: rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--f-display); font-size: 14px; font-weight: 600; color: var(--c-cream);
-    }
-    .nav-name {
-      font-size: 13px; font-weight: 500; color: var(--c-cream); letter-spacing: 0.02em;
-    }
-
-    .legal-container {
-      max-width: 680px; margin: 0 auto;
-      padding: 120px 24px 80px;
-    }
-    .legal-header {
-      text-align: center; margin-bottom: 48px;
-    }
-    .legal-header h1 {
-      font-family: var(--f-display); font-size: 36px; font-weight: 500;
-      color: var(--c-cream); margin-bottom: 8px;
-    }
-    .legal-header .effective {
-      font-size: 13px; color: var(--c-muted);
-    }
-
-    h2 {
-      font-family: var(--f-body); font-size: 16px; font-weight: 600;
-      color: var(--c-cream); margin: 36px 0 12px; letter-spacing: 0.01em;
-    }
-    p {
-      font-size: 14px; line-height: 1.7; color: var(--c-muted); margin-bottom: 14px;
-    }
-    .contact-block { margin-top: 8px; }
-    .contact-block strong { color: var(--c-cream); font-weight: 500; }
-
-    footer {
-      padding: 24px; border-top: 1px solid var(--c-glass-border);
-    }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-left { display: flex; align-items: center; gap: 8px; }
-    .footer-icon {
-      width: 20px; height: 20px; border-radius: 4px;
-      background: rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--f-display); font-size: 10px; font-weight: 600; color: var(--c-cream);
-    }
-    .footer-copy { font-size: 11px; color: var(--c-muted); }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { font-size: 11px; color: var(--c-muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--c-cream); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service - Carmona OS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #d4d4d4;
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 48px 24px 80px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #f5f5f5;
+    margin-bottom: 4px;
+  }
+  .subtitle { color: #938979; font-size: 13px; margin-bottom: 48px; }
+  h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f5f5f5;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+  }
+  p { margin-bottom: 16px; color: #a3a3a3; }
+  strong { color: #d4d4d4; font-weight: 500; }
+  a { color: #C8A97E; text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid #C8A97E; outline-offset: 3px; }
+  .contact { margin-top: 36px; padding-top: 24px; border-top: 1px solid #1a1a1a; }
+  .contact p { margin-bottom: 4px; }
+</style>
 </head>
 <body>
+<div class="container">
 
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">
-        <div class="nav-icon">C</div>
-        <span class="nav-name">Carmona OS</span>
-      </a>
-    </div>
-  </nav>
+<h1>Terms of Service</h1>
+<p class="subtitle">Effective Date: September 15, 2026</p>
 
-  <main class="legal-container">
-    <div class="legal-header">
-      <h1>Terms of Service</h1>
-      <p class="effective">Effective Date: June 27, 2026</p>
-    </div>
+<p>These Terms of Service ("Terms") are an agreement between you and Carmona OS LLC ("Carmona OS," "we," "our," or "us"). They govern your access to and use of the Carmona OS mobile application, website, subscriptions, content, and related services (collectively, the "Service"). By using the Service, creating an account, or purchasing a subscription, you agree to these Terms.</p>
 
-    <p>These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of the Carmona OS mobile application and related services (collectively, the &ldquo;Service&rdquo;) operated by Carmona OS LLC (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), a California limited liability company. By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.</p>
+<h2>1. Eligibility and Accounts</h2>
+<p>You must be at least 18 years old to use the Service. You are responsible for providing accurate account information, maintaining the security of your sign-in credentials, and for activity that occurs through your account. If you believe your account has been compromised, contact us promptly.</p>
 
-    <h2>1. Eligibility</h2>
-    <p>You must be at least 18 years of age to use the Service. By using the Service, you represent and warrant that you meet this age requirement and have the legal capacity to enter into a binding agreement.</p>
+<h2>2. Fitness, Nutrition, and Health Disclaimer</h2>
+<p>The Service provides fitness, workout, nutrition, and coaching-related information for educational and informational purposes only. The Service does not provide medical advice, diagnosis, treatment, physical therapy, or emergency services. You should consult a physician or qualified health professional before beginning or changing any exercise, nutrition, supplement, or wellness program, especially if you have a medical condition, injury, disability, or other health concern.</p>
+<p>Exercise and nutrition changes involve risk. You are responsible for exercising within your abilities, using proper equipment and technique, and stopping if you experience pain, dizziness, shortness of breath, or other concerning symptoms. You assume the risks associated with your use of the Service and your participation in any workouts or recommendations.</p>
 
-    <h2>2. Account Registration</h2>
-    <p>To access certain features, you must create an account using a valid email address. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You agree to notify us immediately of any unauthorized use of your account.</p>
+<h2>3. Subscriptions and Billing</h2>
+<p>Carmona OS is free in this release, and this version does not offer an in-app purchase or subscription. We may offer paid features in a future release. If we do, the price, billing period, renewal terms, and purchase conditions will be shown before you buy.</p>
+<p>Future purchases may be handled through the Apple App Store, Stripe, or another payment provider. You would manage or cancel a subscription through the provider used to purchase it. Deleting a Carmona OS account does not automatically cancel billing managed by a separate payment provider.</p>
 
-    <h2>3. Description of Service</h2>
-    <p>Carmona OS is a fitness application that provides personalized workout programming, exercise tracking, and AI-powered coaching insights. The Service includes two training tracks (Essentials and Carmona Method) and uses artificial intelligence to generate post-workout coaching feedback based on your session data.</p>
+<h2>4. Your Content and Data</h2>
+<p>You may submit information such as workout history, preferences, exercise performance, account information, and feedback. You retain any rights you have in your own submitted content, but you grant Carmona OS LLC a limited license to use, host, process, display, and analyze that content as needed to operate, personalize, secure, support, and improve the Service.</p>
+<p>Our collection and use of personal information is described in our <a href="/privacy">Privacy Policy</a>.</p>
 
-    <h2>4. Subscriptions and Billing</h2>
-    <p>Some features require a paid subscription. Subscription availability, pricing, billing periods, renewals, cancellations, and refunds may be handled through Apple App Store, Stripe, or another payment provider depending on where you purchased access. Subscriptions renew automatically unless canceled before the end of the current billing period according to the applicable provider&rsquo;s rules.</p>
-    <p>You are responsible for managing or canceling your subscription through the provider you used to purchase it. Deleting your Carmona OS account does not automatically cancel billing through Apple, Stripe, or another payment provider.</p>
+<h2>5. Carmona OS Content and Intellectual Property</h2>
+<p>The Service, including its software, design, workout programming, training logic, copy, graphics, trademarks, trade dress, and other content, is owned by Carmona OS LLC or its licensors and is protected by intellectual property laws. Subject to these Terms, we grant you a limited, personal, non-exclusive, non-transferable, revocable license to use the Service for your own personal, non-commercial use.</p>
+<p>You may not copy, modify, distribute, sell, reverse engineer, scrape, or create derivative works from the Service except as permitted by law or with our written permission.</p>
 
-    <h2>5. Acceptable Use</h2>
-    <p>You agree not to: (a) use the Service for any unlawful purpose; (b) attempt to reverse engineer, decompile, or disassemble any portion of the Service; (c) interfere with or disrupt the Service or its underlying infrastructure; (d) create multiple accounts to circumvent the trial period or any usage limits; (e) share your account credentials with others or allow others to access your account; (f) reproduce, distribute, or publicly display any content from the Service without our prior written consent; or (g) use automated scripts, bots, or scrapers to access the Service.</p>
+<h2>6. AI-Powered Features</h2>
+<p>The Service may use artificial intelligence to generate coaching feedback, summaries, recommendations, or other outputs. AI-generated content may be incomplete, inaccurate, or inappropriate for your individual circumstances. You are responsible for reviewing outputs before relying on them, and you should not use AI-generated content as medical, legal, financial, or professional advice.</p>
 
-    <h2>6. Intellectual Property</h2>
-    <p>All content, features, and functionality of the Service, including but not limited to workout programming, exercise descriptions, AI-generated coaching content, text, graphics, logos, and software, are owned by Carmona OS LLC and are protected by United States and international copyright, trademark, and other intellectual property laws.</p>
-    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Service for your personal, non-commercial use, subject to these Terms. This license does not include the right to modify, reproduce, distribute, or create derivative works from any content provided through the Service.</p>
+<h2>7. Acceptable Use</h2>
+<p>You agree not to misuse the Service, interfere with its security or operation, access it through unauthorized automated means, attempt to obtain another user's data, upload harmful code, impersonate others, violate applicable law, or use the Service in a way that infringes the rights of Carmona OS LLC or any third party.</p>
 
-    <h2>7. Health and Fitness Disclaimer</h2>
-    <p>The Service provides general fitness information and programming. It is not a substitute for professional medical advice, diagnosis, or treatment. You should consult a qualified healthcare provider before beginning any exercise program, especially if you have any pre-existing medical conditions, injuries, or health concerns.</p>
-    <p>You acknowledge that physical exercise carries inherent risks, including but not limited to muscle strains, joint injuries, cardiovascular events, and other physical harm. You assume full responsibility for any risks, injuries, or damages that may result from your use of the Service. The Company is not liable for any injury, illness, or harm resulting from your use of the exercise programming or recommendations provided through the Service.</p>
+<h2>8. Service Changes and Availability</h2>
+<p>We may modify, suspend, or discontinue parts of the Service at any time. We do not guarantee that the Service will be uninterrupted, error-free, or available on every device or platform. We may update these Terms from time to time by posting the updated version and changing the effective date.</p>
 
-    <h2>8. AI-Powered Features</h2>
-    <p>The Service uses artificial intelligence to generate personalized coaching feedback and recommendations. AI-generated content is provided for informational purposes only and should not be considered professional medical, nutritional, or fitness advice. AI outputs may occasionally contain errors or inaccuracies. You should exercise independent judgment when relying on AI-generated recommendations.</p>
+<h2>9. Disclaimers</h2>
+<p>To the fullest extent permitted by law, the Service is provided "as is" and "as available" without warranties of any kind, whether express, implied, or statutory. Carmona OS LLC disclaims warranties of merchantability, fitness for a particular purpose, title, non-infringement, accuracy, availability, and reliability.</p>
 
-    <h2>9. User Content and Data</h2>
-    <p>You retain ownership of any data you input into the Service, including workout logs and personal information. By using the Service, you grant us a limited license to use your data solely for the purpose of providing and improving the Service, including generating AI-powered coaching feedback. Our use of your personal information is governed by our <a href="/privacy" style="color: var(--c-gold); text-decoration: none;">Privacy Policy</a>.</p>
+<h2>10. Limitation of Liability</h2>
+<p>To the fullest extent permitted by law, Carmona OS LLC and its owners, officers, employees, contractors, agents, service providers, and licensors will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for lost profits, lost data, personal injury, or business interruption arising from or related to your use of the Service.</p>
+<p>To the fullest extent permitted by law, Carmona OS LLC's total liability for claims arising from or related to the Service will not exceed the greater of the amount you paid to Carmona OS LLC for the Service in the 12 months before the claim or $100.</p>
 
-    <h2>10. Limitation of Liability</h2>
-    <p style="text-transform: uppercase; font-size: 13px;">To the maximum extent permitted by applicable law, Carmona OS LLC and its officers, directors, members, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the Service, whether based on warranty, contract, tort (including negligence), statute, or any other legal theory.</p>
-    <p style="text-transform: uppercase; font-size: 13px;">Our total aggregate liability for all claims related to the Service shall not exceed the amount you paid to us in the twelve (12) months preceding the event giving rise to the claim.</p>
+<h2>11. Indemnification</h2>
+<p>You agree to defend, indemnify, and hold harmless Carmona OS LLC and its owners, officers, employees, contractors, agents, service providers, and licensors from claims, damages, losses, liabilities, costs, and expenses arising from your use of the Service, your violation of these Terms, your submitted content, or your violation of applicable law or third-party rights.</p>
 
-    <h2>11. Disclaimer of Warranties</h2>
-    <p style="text-transform: uppercase; font-size: 13px;">The Service is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, error-free, or secure.</p>
+<h2>12. Termination</h2>
+<p>You may stop using the Service at any time. We may suspend or terminate your access if we believe you have violated these Terms, created risk for Carmona OS LLC or other users, or used the Service unlawfully. Sections that by their nature should survive termination will survive, including intellectual property, disclaimers, limitation of liability, indemnification, and governing law.</p>
 
-    <h2>12. Indemnification</h2>
-    <p>You agree to indemnify, defend, and hold harmless Carmona OS LLC and its officers, directors, members, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third-party rights; or (d) any injury or harm resulting from your exercise activities.</p>
+<h2>13. Governing Law</h2>
+<p>These Terms are governed by the laws of the State of California, without regard to conflict of law principles, except where applicable law requires otherwise.</p>
 
-    <h2>13. Termination</h2>
-    <p>We may suspend or terminate your access to the Service at any time, with or without cause, and with or without notice. Upon termination, your right to use the Service ceases immediately. Sections 6, 7, 10, 11, 12, 14, and 15 shall survive termination.</p>
+<h2>14. Contact Us</h2>
+<p>If you have questions about these Terms, please contact us at:</p>
+<div class="contact">
+<p><strong>Carmona OS LLC</strong></p>
+<p>Email: <a href="mailto:support@carmonaos.com">support@carmonaos.com</a></p>
+<p><a href="/support">Carmona OS Support</a></p>
+</div>
 
-    <h2>14. Governing Law and Dispute Resolution</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. Any dispute arising out of or relating to these Terms or the Service shall be resolved exclusively in the state or federal courts located in Los Angeles County, California, and you consent to the personal jurisdiction of such courts.</p>
-
-    <h2>15. General Provisions</h2>
-    <p>These Terms constitute the entire agreement between you and Carmona OS LLC regarding the Service and supersede all prior agreements. If any provision of these Terms is found to be unenforceable, the remaining provisions shall remain in full force and effect. Our failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision. We may assign our rights and obligations under these Terms without restriction. You may not assign your rights or obligations without our prior written consent.</p>
-
-    <h2>16. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of material changes by posting the updated Terms within the Service and updating the effective date above. Your continued use of the Service after changes are posted constitutes acceptance of the updated Terms. If you do not agree with the updated Terms, you must stop using the Service.</p>
-
-    <h2>17. Contact</h2>
-    <p>If you have questions about these Terms, please contact us at:</p>
-    <div class="contact-block">
-      <p><strong>Carmona OS LLC</strong><br />Email: support@carmonaos.com</p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-left">
-        <div class="footer-icon">C</div>
-        <span class="footer-copy">&copy; 2026 Carmona OS LLC</span>
-      </div>
-      <div class="footer-links">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="https://www.instagram.com/carmonafitness" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="mailto:support@carmonaos.com">Support</a>
-      </div>
-    </div>
-  </footer>
-
+</div>
 </body>
 </html>
