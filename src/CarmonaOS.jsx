@@ -11,7 +11,18 @@ const VARIANTS = {
 };
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
-const APP_STORE_URL = "https://apps.apple.com/us/app/carmona-os/id6759835736";
+// App Store Connect campaign link: pt = provider token, ct = campaign.
+// ct comes from the visitor's utm_source so App Analytics can split
+// downloads and paying users by channel. Visitors without one are "website".
+const APP_STORE_PROVIDER_TOKEN = "128604529";
+
+function campaignToken() {
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get("utm_source") || (params.has("fbclid") ? "meta" : "website");
+  return source.toLowerCase().replace(/[^a-z0-9_-]/g, "-").slice(0, 30) || "website";
+}
+
+const APP_STORE_URL = `https://apps.apple.com/us/app/carmona-os/id6759835736?pt=${APP_STORE_PROVIDER_TOKEN}&ct=${campaignToken()}&mt=8`;
 
 const IMAGES = {
   hero: "/hero-cover.jpg",
