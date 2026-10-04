@@ -237,13 +237,10 @@ export default function CarmonaOS() {
               From Matthew
             </p>
             <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 500, color: "var(--c-cream)", lineHeight: 1.15, marginBottom: "24px" }}>
-              I built the app I wanted for myself.
+              I built the app that I wanted to use.
             </h2>
-            <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--c-muted)", marginBottom: "16px" }}>
-              I'm a competitive bodybuilder with a day job. I needed a training system that adapted to my week without losing the plot. Carmona OS is what I built: real programming, real progression, and a receipt after every workout that explains what changed, in 45 minutes when I need it.
-            </p>
             <p style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--c-muted)" }}>
-              I'm not selling PDFs or someone else's products. This is the system I train with. I built it so you could run it too, whether you have the full session or 45 minutes.
+              I didn't want PDFs or disconnected workouts. I wanted programming that evolved with me—and that reflects how I plan my own workouts. Carmona OS is what I built. It offers real programming, real progression, and a debrief after every workout that explains what changed. And the workouts adapt to my schedule: full workouts when I have time, 45-minute mode when I don't.
             </p>
           </div>
         </section>
