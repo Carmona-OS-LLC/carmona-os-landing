@@ -6,7 +6,7 @@ const VARIANTS = {
     headline: "Results you can't miss.",
     headlineMuted: "A physique people notice.",
     sub: "A training system that learns from the work you actually complete, whether you train the full session or have 45 minutes.",
-    credit: "From Matthew Carmona, NASM-certified trainer, competitive bodybuilder, and 9-5er.",
+    credit: "By Matthew Carmona, NASM-certified trainer, competitive bodybuilder, and 9-5er.",
   },
 };
 
