@@ -38,6 +38,10 @@ function trackDownload(placement) {
       content_category: placement,
     });
   }
+  // OpenAI Ads pixel: "App Store click" conversion (base event Lead created).
+  if (typeof window.oaiq !== "undefined") {
+    window.oaiq("measure", "lead_created", { type: "customer_action" });
+  }
 }
 
 function AppStoreButton({ placement }) {
