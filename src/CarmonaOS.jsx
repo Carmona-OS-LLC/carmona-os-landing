@@ -205,16 +205,18 @@ export default function CarmonaOS() {
           </div>
         </section>
 
-        {/* ═══ APP PEEK — 4 screenshots ═══ */}
+        {/* ═══ APP PEEK — App Store screenshots ═══ */}
         <section style={{ padding: "64px 0 0", borderTop: "1px solid var(--c-glass-border)", overflow: "hidden" }}>
           <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
             <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, textAlign: "center", marginBottom: "28px" }}>Inside the app</p>
             <div style={{ display: "flex", gap: "20px", overflowX: "auto", padding: "0 24px 32px", scrollSnapType: "x mandatory", scrollPaddingLeft: "24px", WebkitOverflowScrolling: "touch", msOverflowStyle: "none", scrollbarWidth: "none", justifyContent: "flex-start" }}>
             {[
-              { src: "/app-onboarding.png", label: "A program built around you from day one." },
-              { src: "/app-home.png", label: "A demo and technique cues for every lift." },
-              { src: "/app-debrief.png", label: "A receipt after every workout: what changed and why." },
-              { src: "/app-progress.png", label: "Watch every muscle group move, block by block." },
+              { src: "/app-1-home-next-workout.jpg", label: "Your next workout, ready when you are." },
+              { src: "/app-2-workouts-full-or-45.jpg", label: "Full session or a focused 45." },
+              { src: "/app-3-active-set.jpg", label: "Sets, reps and starting weights for every lift." },
+              { src: "/app-4-trustworthy-receipt.jpg", label: "A receipt after every workout: what changed and why." },
+              { src: "/app-5-engine-progress.jpg", label: "The Engine shows where you're progressing." },
+              { src: "/app-6-nutrition-daily-targets.jpg", label: "Daily targets and playbooks for eating out." },
             ].map((s, i) => (
               <div key={i} style={{ flex: "0 0 240px", scrollSnapAlign: "start", textAlign: "center" }}>
                 <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", maxHeight: "520px", position: "relative" }}>
