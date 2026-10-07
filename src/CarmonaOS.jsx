@@ -7,21 +7,79 @@ const VARIANTS = {
     headlineMuted: "A physique people notice.",
     sub: "A training system that learns from the work you actually complete, whether you train the full session or have 45 minutes.",
     credit: "By Matthew Carmona, NASM-certified trainer, competitive bodybuilder, and 9-5er.",
+    cta: "Download Carmona OS",
+    navCta: "Download",
+    note: "Your first six workouts are free. No account needed to start.",
+  },
+  // Progression-led test page (?v=2). Mirrors the winning ad message from
+  // Meta test T1 ("Progression you can see") and puts the free trial up front.
+  2: {
+    headline: "Progression you can see.",
+    headlineMuted: "Every session adapts.",
+    sub: "Carmona OS learns from every set you complete, sets your next weights, and shows you what changed and why. Full session or 45 minutes.",
+    credit: "By Matthew Carmona, NASM-certified trainer, competitive bodybuilder, and 9-5er.",
+    cta: "Start your 6 free workouts",
+    navCta: "Start free",
+    note: "Free on the App Store. No account needed to start.",
   },
 };
+
+// Feature cards. v2 leads with progression, then 45 Min.
+const FEATURES = {
+  program: {
+    title: "A program that knows what comes next.",
+    body: "Every session gives you the exercises, sets, reps, rest and starting weights. Choose Precision, a five-day pre-fatigue split for experienced lifters, or Essentials, a push, pull, legs foundation you can run three to six days a week.",
+  },
+  time: {
+    title: "Full session or a focused 45.",
+    body: "Short on time? Switch to 45 Min. The work you complete still counts, and the exercises you don't reach are not held against you.",
+  },
+  progress: {
+    title: "Progress that explains itself.",
+    body: "Carmona OS learns from the work you actually complete. Strong sessions can earn you a heavier weight; a near miss holds the weight so you can try again. After every workout, your receipt shows what changed and why.",
+  },
+  nutrition: {
+    title: "Targets you can use today.",
+    body: "Personal daily nutrition targets, plus practical playbooks for eating out, lunch and cooking at home.",
+  },
+};
+const FEATURE_ORDER = {
+  1: ["program", "time", "progress", "nutrition"],
+  2: ["progress", "time", "program", "nutrition"],
+};
+
+// "How it adapts" steps (v2 only).
+const ADAPT_STEPS = [
+  {
+    title: "You train.",
+    body: "Every session gives you the exercises, sets, reps, rest and starting weights. Train the full session or switch to 45 Min.",
+  },
+  {
+    title: "It learns.",
+    body: "Carmona OS reads the work you actually complete. A strong session can earn a heavier weight; a near miss holds the weight so you can try again.",
+  },
+  {
+    title: "You see why.",
+    body: "After every workout, your receipt shows what changed. The Engine shows where you're progressing and where the app is still learning.",
+  },
+];
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
 // App Store Connect campaign link: pt = provider token, ct = campaign.
 // ct comes from the visitor's utm_source (plus utm_content, when set, as
 // "source-content") so App Analytics can split downloads and paying users by
-// channel and ad. Visitors without a source are "website".
+// channel and ad. Visitors without a source are "website". A page variant
+// other than the default (?v=2) is appended as "-v2" so landing-page tests
+// can be read in App Analytics too.
 const APP_STORE_PROVIDER_TOKEN = "128604529";
 
 function campaignToken() {
   const params = new URLSearchParams(window.location.search);
   const source = params.get("utm_source") || (params.has("fbclid") ? "meta" : "website");
   const content = params.get("utm_content");
-  const token = content ? `${source}-${content}` : source;
+  const variant = params.get("v");
+  let token = content ? `${source}-${content}` : source;
+  if (variant && variant !== "1") token += `-v${variant}`;
   return token.toLowerCase().replace(/[^a-z0-9_-]/g, "-").slice(0, 30) || "website";
 }
 
@@ -47,7 +105,7 @@ function trackDownload(placement) {
   }
 }
 
-function AppStoreButton({ placement }) {
+function AppStoreButton({ placement, label = "Download Carmona OS" }) {
   return (
     <a
       href={APP_STORE_URL}
@@ -61,7 +119,7 @@ function AppStoreButton({ placement }) {
         textDecoration: "none",
       }}
     >
-      Download Carmona OS
+      {label}
     </a>
   );
 }
@@ -123,7 +181,7 @@ export default function CarmonaOS() {
               onClick={() => trackDownload("nav")}
               style={{ padding: "8px 18px", borderRadius: "8px", background: "var(--c-cream)", color: "var(--c-bg)", fontSize: "12px", fontWeight: 600, textDecoration: "none", fontFamily: "var(--f-body)", letterSpacing: "0.02em" }}
             >
-              Download
+              {hero.navCta}
             </a>
           </div>
         </nav>
@@ -156,10 +214,10 @@ export default function CarmonaOS() {
                 {hero.sub}
               </p>
               <div className="fade-up fade-up-4">
-                <AppStoreButton placement={`hero-v${v}`} />
+                <AppStoreButton placement={`hero-v${v}`} label={hero.cta} />
               </div>
               <p className="fade-up fade-up-5" style={{ fontSize: "12px", color: "var(--c-gold)", marginTop: "14px" }}>
-                Your first six workouts are free. No account needed to start.
+                {hero.note}
               </p>
               <p className="fade-up fade-up-6" style={{ fontSize: "12px", lineHeight: 1.55, color: "var(--c-muted)", marginTop: "24px", maxWidth: "440px" }}>
                 {hero.credit}
@@ -167,6 +225,58 @@ export default function CarmonaOS() {
             </div>
           </div>
         </section>
+
+        {/* ═══ HOW IT ADAPTS (v2) ═══ */}
+        {v === 2 && (
+          <section style={{ padding: "72px 24px", borderTop: "1px solid var(--c-glass-border)" }}>
+            <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+              <div style={{ maxWidth: "640px", marginBottom: "40px" }}>
+                <p style={{ fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--c-gold)", fontWeight: 500, marginBottom: "18px" }}>
+                  How it adapts
+                </p>
+                <h2 style={{ fontFamily: "var(--f-display)", fontSize: "clamp(28px, 4.5vw, 40px)", fontWeight: 500, color: "var(--c-cream)", lineHeight: 1.1, marginBottom: "20px" }}>
+                  Your next session is built from your last one.
+                </h2>
+                <p style={{ fontSize: "15px", lineHeight: 1.6, color: "var(--c-muted)" }}>
+                  No guessing at weights and no random workouts. Progress is earned through consistent, controlled work, and the app tells you when it has been.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "40px", alignItems: "center" }}>
+                <ol style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "28px" }}>
+                  {ADAPT_STEPS.map((step, i) => (
+                    <li key={i} style={{ display: "grid", gridTemplateColumns: "36px 1fr", gap: "14px" }}>
+                      <span style={{ width: "36px", height: "36px", borderRadius: "999px", border: "1px solid var(--c-gold)", color: "var(--c-gold)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: 500 }}>{i + 1}</span>
+                      <div>
+                        <h3 style={{ fontFamily: "var(--f-display)", fontSize: "20px", fontWeight: 500, color: "var(--c-cream)", lineHeight: 1.2, marginBottom: "6px" }}>{step.title}</h3>
+                        <p style={{ fontSize: "14px", lineHeight: 1.6, color: "var(--c-muted)" }}>{step.body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+                  {[
+                    { src: "/app-4-trustworthy-receipt.jpg", label: "Your receipt after every workout." },
+                    { src: "/app-5-engine-progress.jpg", label: "The Engine: where you're progressing." },
+                  ].map((s, i) => (
+                    <figure key={i} style={{ flex: "1 1 0", maxWidth: "230px", minWidth: 0, textAlign: "center" }}>
+                      <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
+                        <img src={s.src} alt={s.label} style={{ width: "100%", display: "block" }} />
+                      </div>
+                      <figcaption style={{ fontSize: "12px", color: "var(--c-muted)", marginTop: "12px" }}>{s.label}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+              <div style={{ marginTop: "48px", padding: "20px 24px", borderRadius: "14px", border: "1px solid var(--c-glass-border)", background: "var(--c-surface)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
+                <div style={{ minWidth: 0 }}>
+                  <p style={{ fontFamily: "var(--f-display)", fontSize: "20px", color: "var(--c-cream)", marginBottom: "4px" }}>Your first six workouts are free.</p>
+                  <p style={{ fontSize: "13px", color: "var(--c-muted)" }}>Then $14.99 a month or $119.99 a year. No account needed to start.</p>
+                </div>
+                <AppStoreButton placement={`adapt-v${v}`} label={hero.cta} />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ═══ THE PROMISE ═══ */}
         <section style={{ padding: "72px 24px 48px", borderTop: "1px solid var(--c-glass-border)" }}>
@@ -183,28 +293,7 @@ export default function CarmonaOS() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "12px" }}>
-              {[
-                {
-                  num: "01",
-                  title: "A program that knows what comes next.",
-                  body: "Every session gives you the exercises, sets, reps, rest and starting weights. Choose Precision, a five-day pre-fatigue split for experienced lifters, or Essentials, a push, pull, legs foundation you can run three to six days a week.",
-                },
-                {
-                  num: "02",
-                  title: "Full session or a focused 45.",
-                  body: "Short on time? Switch to 45 Min. The work you complete still counts, and the exercises you don't reach are not held against you.",
-                },
-                {
-                  num: "03",
-                  title: "Progress that explains itself.",
-                  body: "Carmona OS learns from the work you actually complete. Strong sessions can earn you a heavier weight; a near miss holds the weight so you can try again. After every workout, your receipt shows what changed and why.",
-                },
-                {
-                  num: "04",
-                  title: "Targets you can use today.",
-                  body: "Personal daily nutrition targets, plus practical playbooks for eating out, lunch and cooking at home.",
-                },
-              ].map((p, i) => (
+              {FEATURE_ORDER[v].map((key, i) => ({ num: String(i + 1).padStart(2, "0"), ...FEATURES[key] })).map((p, i) => (
                 <div
                   key={i}
                   style={{
@@ -285,7 +374,7 @@ export default function CarmonaOS() {
               Download it, pick your program, and start Workout 1 today.
             </p>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <AppStoreButton placement={`bottom-v${v}`} />
+              <AppStoreButton placement={`bottom-v${v}`} label={hero.cta} />
             </div>
             <p style={{ fontSize: "12px", color: "var(--c-muted)", marginTop: "18px" }}>
               Free on the App Store. No account needed to start.
