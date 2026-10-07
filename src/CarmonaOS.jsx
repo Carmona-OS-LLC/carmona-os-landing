@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 
 // ─── HERO COPY (locked) ─────────────────────────────────────────────────────
+// v2 (progression-led) is the default since Oct 7, 2026; the original page
+// stays available at ?v=1 for a later old-vs-new test.
+const DEFAULT_VARIANT = 2;
 const VARIANTS = {
   1: {
     headline: "Results you can't miss.",
@@ -68,9 +71,9 @@ const ADAPT_STEPS = [
 // App Store Connect campaign link: pt = provider token, ct = campaign.
 // ct comes from the visitor's utm_source (plus utm_content, when set, as
 // "source-content") so App Analytics can split downloads and paying users by
-// channel and ad. Visitors without a source are "website". A page variant
-// other than the default (?v=2) is appended as "-v2" so landing-page tests
-// can be read in App Analytics too.
+// channel and ad. Visitors without a source are "website". An explicitly
+// requested non-default page variant (e.g. ?v=1) is appended as "-v1" so
+// landing-page tests can be read in App Analytics too.
 const APP_STORE_PROVIDER_TOKEN = "128604529";
 
 function campaignToken() {
@@ -79,7 +82,7 @@ function campaignToken() {
   const content = params.get("utm_content");
   const variant = params.get("v");
   let token = content ? `${source}-${content}` : source;
-  if (variant && variant !== "1") token += `-v${variant}`;
+  if (variant && variant !== String(DEFAULT_VARIANT)) token += `-v${variant}`;
   return token.toLowerCase().replace(/[^a-z0-9_-]/g, "-").slice(0, 30) || "website";
 }
 
@@ -126,7 +129,7 @@ function AppStoreButton({ placement, label = "Download Carmona OS" }) {
 
 // ─── MAIN PAGE ──────────────────────────────────────────────────────────────
 export default function CarmonaOS() {
-  const [v, setV] = useState(1);
+  const [v, setV] = useState(DEFAULT_VARIANT);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
