@@ -16,7 +16,7 @@ const VARIANTS = {
   2: {
     headline: "Progression you can see.",
     headlineMuted: "Every session adapts.",
-    sub: "Carmona OS learns from every set you complete, sets your next weights, and shows you what changed and why. Full session or 45 minutes.",
+    sub: "Carmona OS learns from every set you complete, sets your next weights, and shows you what changed and why.",
     credit: "By Matthew Carmona, NASM-certified trainer, competitive bodybuilder, and 9-5er.",
     cta: "Start your 6 free workouts",
     navCta: "Start free",
@@ -60,7 +60,7 @@ const ADAPT_STEPS = [
   },
   {
     title: "You see why.",
-    body: "After every workout, your receipt shows what changed. The Engine shows where you're progressing and where the app is still learning.",
+    body: "After every workout, your summary shows what changed. The Engine shows where you're progressing and where the app is still learning.",
   },
 ];
 
@@ -238,7 +238,7 @@ export default function CarmonaOS() {
                   Your next session is built from your last one.
                 </h2>
                 <p style={{ fontSize: "15px", lineHeight: 1.6, color: "var(--c-muted)" }}>
-                  No guessing at weights and no random workouts. Progress is earned through consistent, controlled work, and the app tells you when it has been.
+                  No guessing what weight to use next, and no random workouts. Set your baseline, and then the app tells you what's next based on what you actually lift.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "40px", alignItems: "center" }}>
@@ -255,7 +255,7 @@ export default function CarmonaOS() {
                 </ol>
                 <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
                   {[
-                    { src: "/app-4-trustworthy-receipt.jpg", label: "Your receipt after every workout." },
+                    { src: "/app-4-trustworthy-receipt.jpg", label: "Your summary after every workout." },
                     { src: "/app-5-engine-progress.jpg", label: "The Engine: where you're progressing." },
                   ].map((s, i) => (
                     <figure key={i} style={{ flex: "1 1 0", maxWidth: "230px", minWidth: 0, textAlign: "center" }}>
