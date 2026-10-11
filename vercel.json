@@ -12,5 +12,22 @@
       "source": "/support",
       "destination": "/support.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/get/engine",
+      "destination": "https://apps.apple.com/us/app/carmona-os/id6759835736?pt=128604529&mt=8&ct=meta-direct_engine",
+      "permanent": false
+    },
+    {
+      "source": "/get/home",
+      "destination": "https://apps.apple.com/us/app/carmona-os/id6759835736?pt=128604529&mt=8&ct=meta-direct_home",
+      "permanent": false
+    },
+    {
+      "source": "/get/workouts",
+      "destination": "https://apps.apple.com/us/app/carmona-os/id6759835736?pt=128604529&mt=8&ct=meta-direct_workouts",
+      "permanent": false
+    }
   ]
 }
