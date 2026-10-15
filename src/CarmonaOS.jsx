@@ -140,6 +140,8 @@ export default function CarmonaOS() {
     const resolved = variant && VARIANTS[variant] ? variant : DEFAULT_VARIANT;
     setV(resolved);
     if (typeof window.fbq !== "undefined") window.fbq("trackCustom", `View_v${resolved}`);
+    // Lets Clarity recordings and heatmaps be filtered by page variant.
+    if (typeof window.clarity !== "undefined") window.clarity("set", "variant", `v${resolved}`);
   }, []);
 
   const hero = VARIANTS[v];
