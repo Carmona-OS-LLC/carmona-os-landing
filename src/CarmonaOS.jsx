@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 // ─── HERO COPY (locked) ─────────────────────────────────────────────────────
-// v2 (progression-led) is the default since Oct 7, 2026; the original page
-// stays available at ?v=1 for a later old-vs-new test.
-const DEFAULT_VARIANT = 2;
+// v1 (results-led) is the default again since Oct 15, 2026: it converted ad
+// visitors to App Store taps at ~35-43% vs ~18-23% for v2. v2 stays at ?v=2.
+const DEFAULT_VARIANT = 1;
 const VARIANTS = {
   1: {
     headline: "Results you can't miss.",
@@ -101,6 +101,9 @@ function trackDownload(placement) {
       content_name: "app_store_click",
       content_category: placement,
     });
+    // Meta strips custom parameters for this pixel, so the page variant is
+    // carried in the event name, which Events Manager does show.
+    window.fbq("trackCustom", `Tap_${placement.split("-").pop()}`);
   }
   // OpenAI Ads pixel: "App Store click" conversion (base event Lead created).
   if (typeof window.oaiq !== "undefined") {
@@ -134,7 +137,11 @@ export default function CarmonaOS() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const variant = parseInt(params.get("v"));
-    if (variant && VARIANTS[variant]) setV(variant);
+    const resolved = variant && VARIANTS[variant] ? variant : DEFAULT_VARIANT;
+    setV(resolved);
+    if (typeof window.fbq !== "undefined") window.fbq("trackCustom", `View_v${resolved}`);
+    // Lets Clarity recordings and heatmaps be filtered by page variant.
+    if (typeof window.clarity !== "undefined") window.clarity("set", "variant", `v${resolved}`);
   }, []);
 
   const hero = VARIANTS[v];
@@ -181,7 +188,7 @@ export default function CarmonaOS() {
             </div>
             <a
               href={APP_STORE_URL}
-              onClick={() => trackDownload("nav")}
+              onClick={() => trackDownload(`nav-v${v}`)}
               style={{ padding: "8px 18px", borderRadius: "8px", background: "var(--c-cream)", color: "var(--c-bg)", fontSize: "12px", fontWeight: 600, textDecoration: "none", fontFamily: "var(--f-body)", letterSpacing: "0.02em" }}
             >
               {hero.navCta}
